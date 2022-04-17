@@ -1,0 +1,21 @@
+name: Go
+on: [push]
+jobs:
+
+  build_test:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Go 1.18
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+      id: go
+
+    - name: Checkout 🛎️
+      uses: actions/checkout@v3
+
+    - name: Install and Build for All Platforms 🔧
+      run: make build_all
+ 
