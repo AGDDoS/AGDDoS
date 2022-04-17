@@ -17,3 +17,6 @@
 # VSCode
 .vscode
 
+# Temp Files
+*.tmp
+tmp*

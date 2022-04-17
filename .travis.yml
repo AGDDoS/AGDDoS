@@ -1,7 +1,0 @@
-language: go
-go: 
-  - 1.18.x
-
-script:
- - go get -d ./...
- - go test -v ./...

