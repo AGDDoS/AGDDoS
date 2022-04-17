@@ -10,13 +10,14 @@ import (
 
 const (
 	Prefix = "[GDDoS] "
+	WarningPrefix = "[WARNING] "
 	ErrorPrefix = "[ERROR] "
 )
 
 func main() {
 	fmt.Print("\x1b]0;" + Prefix + "Please type the ip that you want to DDoS..." + "\x07")
 	Log("This app is under a strict license that doesn't allow anyone to sell it or use it in a profit purpose!")
-	Log("Created by: 甜力怕 - github.com/xiaozhu2007")
+	Log("Created by: 甜力怕 - https://github.com/xiaozhu2007")
 	Log("[Notice] To quit press: CTRL+C")
 	for {
 		Log("Please type the IP that you want to DDoS...")
