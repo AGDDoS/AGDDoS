@@ -56,10 +56,11 @@ func main() {
 	flag.IntVar(&DurationMinute, "dm", 2000, "DDos攻击持续时间（分钟）")
 	flag.Parse()
 
-	if TargetUrl == defaultTargetUrl {
-		color.Printf("TargetUrl is %s, 请尝试通过命令行传参数重新启动。Usage：<red>./goddos -h</>\n", TargetUrl)
+	/*if TargetUrl == defaultTargetUrl {
+		color.Printf("TargetUrl is %s, 请尝试通过命令行传参数重新启动(TargetUrl 不能等于 defaultTargetUrl)。Usage：<red>./goddos -h</>\n", TargetUrl)
 		return
 	}
+	*/
 
 	go func() {
 		for i := 0; i < ConcurrencyCount; i++ {
