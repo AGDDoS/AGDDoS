@@ -95,9 +95,9 @@ func DoAttacking(grindex int) {
 		if result, err := DoHttpRequest(); err != nil {
 			fmt.Printf("[Error#%d/%d]\033[1;31;40m (%s) \033[0m \n", grindex, i, err.Error()) // 红色 客户端错误
 		} else {
-			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result) // 绿色 服务端状态码200
-			if !strings.Contains(*result, "200") {
-				responseStatus = fmt.Sprintf("\033[7;33;40m (%s)", *result) // 黄色 服务端状态码400/402/403/404/500/501/502/...
+			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                // 绿色 服务端状态码200
+			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") { // 状态码不是 200/301
+				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // 紫色 服务端状态码400/402/403/404/500/501/502/...
 			}
 			fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认
 		}
