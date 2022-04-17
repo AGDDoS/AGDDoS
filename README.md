@@ -14,3 +14,12 @@ GDDoS is a DDoS program written in golang, this is made for learning purpose, us
  - [MacOS](https://)
  
 ## NoLicense
+
+<script src="https://utteranc.es/client.js"
+        repo="xiaozhu2007/GDDoS"
+        issue-term="url"
+        label="Chat"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
