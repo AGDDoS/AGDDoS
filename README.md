@@ -1,5 +1,6 @@
 # GDDoS
 > DDoS your friends' server.
+
 GDDoS is a DDoS program written in golang, this is made for learning purpose, using it may cause you troubles.
 
 
