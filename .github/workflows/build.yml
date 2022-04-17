@@ -1,1 +1,17 @@
-
+on:
+  push:
+    branches:
+    - main
+    - release/*
+  label:
+    build:
+      name: deploy to staging
+      runs-on: ubuntu-18.04
+      
+      steps:
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.0.0
+        with:
+          # The Go version to download (if necessary) and use. Supports semver spec and ranges.
+          go-version: 1.18 # optional
+          # Used to pull node distributions from go-versions.  Since there's a default, this is typically not supplied by the user.
