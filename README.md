@@ -1,5 +1,5 @@
 # GDDoS
-![GDDoS](https://socialify.git.ci/xiaozhu2007/GDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
+![GDDoS](https://socialify.git.ci/xiaozhu2007/GDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)
 
 ## 贡献
  每一份贡献都是可以接受的，只要它是清晰的、干净的和原创的.
