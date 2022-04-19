@@ -30,17 +30,13 @@ jobs:
         env GOOS=darwin GOARCH=arm64   go build -o ./build/GDDoS-macos-arm64
         #cp ./USEAGE.md ./build/
         
-    
-    - name: Zip it! 🎁
-      run: |
-        tar -cvf build_artifact.tar ./build/GDDoS*
-      
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.0.0
+      uses: actions/upload-artifact@v3
       with:
         name: build_artifact # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./build_artifact.tar
+        path: ./build/GDDoS*
         # The desired behavior if no files are found using the provided path.
         if-no-files-found: warn # optional, default is warn
+        retention-days: 30
  
