@@ -1,13 +1,15 @@
-# GDDoS
 ![GDDoS](https://socialify.git.ci/xiaozhu2007/GDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)
+# GDDoS
 
 ## 贡献
  每一份贡献都是可以接受的，只要它是清晰的、干净的和原创的.
 
-## 您可以在此处下载编译后的程序：
- - [Windows]
- - [Linux]
- - 我们暂不支持 MacOS 系列系统
+
+## 下载地址：
+**[⚡️点我下载最新版本](https://github.com/xiaozhu2007/GDDoS/releases/)** |
+[☁备用下载-蓝奏云] | 
+[☁备用下载-百度云]
+
 
 ## 🔨使用方法
 
@@ -21,7 +23,7 @@
 
 4. 输入`.\GDDoS -h`查看帮助
 
-## 最佳配置
+## 👀最佳配置
 
 ```
 .\GDDoS -m HEAD -ims 1 -cc 10000 -dm 15
@@ -44,7 +46,7 @@
 
 
 
-[Windows]: 
+[☁备用下载-蓝奏云]: 
 [Linux]: 
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
 [爱发电]: https://afdian.net/@xiaozhu2021
