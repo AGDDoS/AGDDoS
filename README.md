@@ -1,11 +1,11 @@
-[![GDDoS](https://socialify.git.ci/xiaozhu2007/GDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/xiaozhu2007/GDDoS/network/members)
+[![GDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/xiaozhu2007/GDDoS/network/members)
 # GDDoS
 
 ## 🎈下载地址：
-**[⚡️点我下载最新版本](https://github.com/xiaozhu2007/GDDoS/releases/)** | [☁备用下载-蓝奏云] | [☁备用下载-阿里云盘]
+**[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-蓝奏云] | [☁备用下载-阿里云盘]
 
 如果你想获取最新版本通知，请给我们一个Watching, 谢谢！
-![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/watch_release.png)
+![](https://raw.githubusercontent.com/AGDDoS/AGDDoS/master/img/watch_release.png)
 
 
 ## 🔨使用方法
@@ -39,7 +39,7 @@
 
 <hr />
 
-[![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/give_a_star.png)](https://github.com/xiaozhu2007/GDDoS/star)
+[![](https://raw.githubusercontent.com/AGDDoS/AGDDoS/master/img/give_a_star.png)](https://github.com/xiaozhu2007/GDDoS/star)
 
 
 
