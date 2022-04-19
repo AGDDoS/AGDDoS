@@ -4,6 +4,9 @@
 ## 🎈下载地址：
 **[⚡️点我下载最新版本](https://github.com/xiaozhu2007/GDDoS/releases/)** | [☁备用下载-蓝奏云] | [☁备用下载-阿里云盘]
 
+如果你想获取最新版本通知，请给我们一个Watching, 谢谢！
+![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/watch_release.png)
+
 
 ## 🔨使用方法
 
@@ -39,6 +42,7 @@
 新的捐赠者必须表明他们希望收到证书，新的捐赠者将在几天内通过电子邮件收到证书。
 
 <hr />
+
 ![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/give_a_star.png)
 
 
