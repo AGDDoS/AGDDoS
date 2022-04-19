@@ -1,5 +1,5 @@
-[![GDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/xiaozhu2007/GDDoS/network/members)
-# GDDoS
+[![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/xiaozhu2007/GDDoS/network/members)
+# AGDDoS
 
 ## 🎈下载地址：
 **[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-蓝奏云] | [☁备用下载-阿里云盘]
