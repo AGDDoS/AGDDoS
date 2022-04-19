@@ -43,7 +43,7 @@
 
 <hr />
 
-![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/give_a_star.png)
+[![](https://raw.githubusercontent.com/xiaozhu2007/GDDoS/master/img/give_a_star.png)](https://github.com/xiaozhu2007/GDDoS/star)
 
 
 
