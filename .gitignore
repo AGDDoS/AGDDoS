@@ -5,6 +5,7 @@
 *.so
 *.dylib
 
+
 # Test binary, built with `go test -c`
 *.test
 
@@ -20,3 +21,6 @@
 # Temp Files
 *.tmp
 tmp*
+*.bak
+*.foo
+*.bar

