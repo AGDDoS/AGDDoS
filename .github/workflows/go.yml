@@ -29,3 +29,10 @@ jobs:
         env GOOS=darwin GOARCH=amd64   go build -o ./build/AGDDoS-macos-amd64
         env GOOS=darwin GOARCH=arm64   go build -o ./build/AGDDoS-macos-arm64
         CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o ./build/AGDDoS.exe
+        echo Success!
+    
+    - uses: actions/upload-artifact@v3
+      with:
+        name: artifact
+        path: ./build/*
+        if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
