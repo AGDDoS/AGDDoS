@@ -19,24 +19,13 @@ jobs:
     - name: Install and Build for All Platforms 🔧
       run: |
         mkdir -p ./build
-        env GOOS=linux GOARCH=amd64    go build -o ./build/GDDoS-linux-amd64
-        env GOOS=linux GOARCH=arm64    go build -o ./build/GDDoS-linux-arm64
-        env GOOS=linux GOARCH=arm      go build -o ./build/GDDoS-linux-arm
-        env GOOS=linux GOARCH=mips     go build -o ./build/GDDoS-linux-mips
-        env GOOS=linux GOARCH=mipsle   go build -o ./build/GDDoS-linux-mipsle
-        env GOOS=linux GOARCH=mips64   go build -o ./build/GDDoS-linux-mips64
-        env GOOS=linux GOARCH=mips64le go build -o ./build/GDDoS-linux-mips64le
-        env GOOS=darwin GOARCH=amd64   go build -o ./build/GDDoS-macos-amd64
-        env GOOS=darwin GOARCH=arm64   go build -o ./build/GDDoS-macos-arm64
-        #cp ./USEAGE.md ./build/
-        
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: build_artifact # optional, default is artifact
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./build/GDDoS*
-        # The desired behavior if no files are found using the provided path.
-        if-no-files-found: warn # optional, default is warn
-        retention-days: 30
- 
+        env GOOS=linux GOARCH=amd64    go build -o ./build/AGDDoS-linux-amd64
+        env GOOS=linux GOARCH=arm64    go build -o ./build/AGDDoS-linux-arm64
+        env GOOS=linux GOARCH=arm      go build -o ./build/AGDDoS-linux-arm
+        env GOOS=linux GOARCH=mips     go build -o ./build/AGDDoS-linux-mips
+        env GOOS=linux GOARCH=mipsle   go build -o ./build/AGDDoS-linux-mipsle
+        env GOOS=linux GOARCH=mips64   go build -o ./build/AGDDoS-linux-mips64
+        env GOOS=linux GOARCH=mips64le go build -o ./build/AGDDoS-linux-mips64le
+        env GOOS=darwin GOARCH=amd64   go build -o ./build/AGDDoS-macos-amd64
+        env GOOS=darwin GOARCH=arm64   go build -o ./build/AGDDoS-macos-arm64
+        CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o ./build/AGDDoS.exe
