@@ -15,7 +15,7 @@ jobs:
     - name: Checkout 🛎️
       uses: actions/checkout@v3
 
-    - name: Build for All Platforms 🎁
+    - name: Build for Linux 🎁
       run: |
         mkdir -p ./build
         env GOOS=linux GOARCH=amd64    go build -o ./build/AGDDoS-linux-amd64
@@ -31,7 +31,6 @@ jobs:
     - name: Build for Windows 🎁
       run: |
         env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -o ./build/AGDDoS-amd64.exe
-        env CGO_ENABLED=0 GOOS=windows GOARCH=amd  go build -o ./build/AGDDoS-arm.exe
         env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -o ./build/AGDDoS-arm64.exe
     
     - name: Upload 📋
