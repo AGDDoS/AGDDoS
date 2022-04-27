@@ -12,10 +12,10 @@ echo What do you want to do? Enter the number.
 set /p num=
 if "%num%"=="1" (
 ::构建exe文件
-go build -o unitst000.exe .\AGDDoS.go
+go build -o AGDDoS.exe .\AGDDoS.go
 )
 
 if "%num%"=="2" (
 ::构建exe文件
-go build -ldflags "-H=windowsgui" -o unitst000.exe .\AGDDoS.go
+go build -ldflags "-H=windowsgui" -o AGDDoS.exe .\AGDDoS.go
 )
