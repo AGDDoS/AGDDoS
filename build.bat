@@ -1,5 +1,4 @@
 @echo off
-::切换到当前文件所在目录
 cd /d %~dp0
 echo.
 echo ----------------------------What do you want to do?----------------------------
@@ -11,11 +10,9 @@ echo.
 echo What do you want to do? Enter the number.
 set /p num=
 if "%num%"=="1" (
-::构建exe文件
 go build -o AGDDoS.exe .\AGDDoS.go
 )
 
 if "%num%"=="2" (
-::构建exe文件
 go build -ldflags "-H=windowsgui" -o AGDDoS.exe .\AGDDoS.go
 )
