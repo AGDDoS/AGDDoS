@@ -1,8 +1,8 @@
-[![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/xiaozhu2007/GDDoS/network/members)
+[![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/AGDDoS/AGDDoS)
 # AGDDoS
 
 ## 🎈下载地址：
-**[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-蓝奏云] | [☁备用下载-阿里云盘]
+**[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-镜像网站] | [☁备用下载-FastGit]
 
 如果你想获取最新版本通知，请给我们一个Watching, 谢谢！
 ![](https://raw.githubusercontent.com/AGDDoS/AGDDoS/master/img/watch_release.png)
@@ -16,9 +16,7 @@
 
 2. 使用本程序前，先关闭安全软件和QQ。
 
-3. **以管理员身份运行本程序**，等待`Patch.exe`获取最新的补丁信息。
-
-4. 运行`.\AGDDoS -h`查看帮助
+3. **以管理员身份运行本程序**，使用`.\AGDDoS -h`查看帮助
 
 ## License
 This software is under **WTFPL**.
@@ -37,7 +35,6 @@ This software is under **WTFPL**.
 
 
 
-[☁备用下载-蓝奏云]: https://example.com
-[☁备用下载-阿里云盘]: https://example.com
+[☁备用下载-镜像网站]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
+[☁备用下载-FastGit]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
-[爱发电]: https://afdian.net/@xiaozhu2021
