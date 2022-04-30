@@ -2,7 +2,7 @@
 
 I'm really glad you're reading this, because we need volunteer developers to help this project come to fruition.
 
-If you haven't already, come find us in QQ <https://qm.qq.com/cgi-bin/qm/qr?k=n8KSQaA3IWntu4NX5T2UN54KM4ynbr3g&jump_from=webapi>. We want you working on things you're excited about.
+If you haven't already, come find us in [QQ] . We want you working on things you're excited about.
 
 ## Submitting changes
 
@@ -24,3 +24,6 @@ Start reading our code and you'll get the hang of it. We optimize for readabilit
 
 Thanks,
 AGDDoS Team
+
+
+[QQ]: https://qm.qq.com/cgi-bin/qm/qr?k=n8KSQaA3IWntu4NX5T2UN54KM4ynbr3g&jump_from=webapi
