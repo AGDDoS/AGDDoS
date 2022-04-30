@@ -20,6 +20,7 @@ Start reading our code and you'll get the hang of it. We optimize for readabilit
 
   * We indent using two spaces (soft tabs)
   * We ALWAYS put spaces after list items and method parameters (`[1, 2, 3]`, not `[1,2,3]`), around operators (`x += 1`, not `x+=1`), and around hash arrows.
+  * We use `gofmt` to format the code.
   * This is open source software. Consider the people who will read your code, and make it look nice for them. 
 
 Thanks,
