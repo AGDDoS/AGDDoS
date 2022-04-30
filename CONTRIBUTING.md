@@ -2,7 +2,7 @@
 
 I'm really glad you're reading this, because we need volunteer developers to help this project come to fruition.
 
-If you haven't already, come find us in QQ <https://qm.qq.com/cgi-bin/qm/qr?k=n8KSQaA3IWntu4NX5T2UN54KM4ynbr3g&jump_from=webapi>. We want you working on things you're excited about.
+If you haven't already, come find us in [QQ] . We want you working on things you're excited about.
 
 ## Submitting changes
 
@@ -20,7 +20,11 @@ Start reading our code and you'll get the hang of it. We optimize for readabilit
 
   * We indent using two spaces (soft tabs)
   * We ALWAYS put spaces after list items and method parameters (`[1, 2, 3]`, not `[1,2,3]`), around operators (`x += 1`, not `x+=1`), and around hash arrows.
+  * We use `gofmt` to format the code.
   * This is open source software. Consider the people who will read your code, and make it look nice for them. 
 
 Thanks,
 AGDDoS Team
+
+
+[QQ]: https://qm.qq.com/cgi-bin/qm/qr?k=n8KSQaA3IWntu4NX5T2UN54KM4ynbr3g&jump_from=webapi
