@@ -5,7 +5,7 @@
 **[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-镜像网站] | [☁备用下载-FastGit]
 
 如果你想获取最新版本通知，请给我们一个Watching, 谢谢！
-![](https://raw.githubusercontent.com/AGDDoS/AGDDoS/master/img/watch_release.png)
+![](img/watch_release.png)
 
 
 ## 🔨使用方法
@@ -31,7 +31,7 @@ This software is under **WTFPL**.
 
 ---
 
-[![](https://raw.githubusercontent.com/AGDDoS/AGDDoS/master/img/give_a_star.png)](https://github.com/xiaozhu2007/GDDoS/star)
+[![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
 
 
 
