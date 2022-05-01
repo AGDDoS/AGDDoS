@@ -3,11 +3,11 @@ name: Feature request
 about: Suggest an idea for this project
 title: "[FR]"
 labels: help wanted
-assignees: xiaozhu2007
+assignees: xiaozhu2007 AGDDoS-bot
 
 ---
 
-**您的功能请求是否与问题有关？请描述一下**
+**您的功能请求是否与某个 Issues 有关？**
 <!-- 对问题的清晰、简洁的描述。当[…]的时候，我总是很沮丧 -->
 
 **描述你想要的解决方案**
