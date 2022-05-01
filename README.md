@@ -5,6 +5,7 @@
 **[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-镜像网站] | [☁备用下载-FastGit]
 
 如果你想获取最新版本通知，请给我们一个Watching, 谢谢！
+
 ![](img/watch_release.png)
 
 
