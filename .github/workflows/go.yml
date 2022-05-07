@@ -18,25 +18,60 @@ jobs:
     - name: Build for Linux 🎁
       run: |
         mkdir -p ./build
-        env GOOS=linux GOARCH=amd64    go build -o ./build/AGDDoS-linux-amd64
-        env GOOS=linux GOARCH=arm64    go build -o ./build/AGDDoS-linux-arm64
-        env GOOS=linux GOARCH=arm      go build -o ./build/AGDDoS-linux-arm
-        env GOOS=linux GOARCH=mips     go build -o ./build/AGDDoS-linux-mips
-        env GOOS=linux GOARCH=mipsle   go build -o ./build/AGDDoS-linux-mipsle
-        env GOOS=linux GOARCH=mips64   go build -o ./build/AGDDoS-linux-mips64
-        env GOOS=linux GOARCH=mips64le go build -o ./build/AGDDoS-linux-mips64le
-        env GOOS=darwin GOARCH=amd64   go build -o ./build/AGDDoS-macos-amd64
-        env GOOS=darwin GOARCH=arm64   go build -o ./build/AGDDoS-macos-arm64
+        env GOOS=linux GOARCH=amd64    go build -o ./build/linux/AGDDoS-linux-amd64
+        env GOOS=linux GOARCH=arm64    go build -o ./build/linux/AGDDoS-linux-arm64
+        env GOOS=linux GOARCH=arm      go build -o ./build/linux/AGDDoS-linux-arm
+        env GOOS=linux GOARCH=mips     go build -o ./build/linux/AGDDoS-linux-mips
+        env GOOS=linux GOARCH=mipsle   go build -o ./build/linux/AGDDoS-linux-mipsle
+        env GOOS=linux GOARCH=mips64   go build -o ./build/linux/AGDDoS-linux-mips64
+        env GOOS=linux GOARCH=mips64le go build -o ./build/linux/AGDDoS-linux-mips64le
+        env GOOS=darwin GOARCH=amd64   go build -o ./build/darwin/AGDDoS-darwin-amd64
+        env GOOS=darwin GOARCH=arm64   go build -o ./build/darwin/AGDDoS-darwin-arm64
     
     - name: Build for Windows 🎁
       run: |
-        env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -o ./build/AGDDoS-amd64.exe
-        env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -o ./build/AGDDoS-arm64.exe
+        timestamp=`date "+%Y-%m-%d %H:%M:%S"` # Timestamp / 时间戳
+        env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -ldflags "-s -w -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-amd64.exe
+        env CGO_ENABLED=0 GOOS=windows GOARCH=386  go build -ldflags "-s -w -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-x86.exe
+        env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -ldflags "-s -w -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-arm64.exe
     
-    - name: Upload 📋
+    - name: Build for Freebsd 🎁
+      run: |
+        timestamp=`date "+%Y-%m-%d %H:%M:%S"` # Timestamp / 时间戳
+        env CGO_ENABLED=0 GOOS=freebsd GOARCH=amd64  go build -ldflags "-s -w -X \"main.timestamp=$timestamp\"" -o ./build/freebsd/AGDDoS-freebsd-amd64
+        env CGO_ENABLED=0 GOOS=freebsd GOARCH=386  go build -ldflags "-s -w -X \"main.timestamp=$timestamp\"" -o ./build/freebsd/AGDDoS-freebsd-x86
+    
+    - name: Upload Linux 📋
       uses: actions/upload-artifact@v3
       with:
-        name: AGDDoS-Artifacts
-        path: ./build/*
-        retention-days: 15
+        name: AGDDoS-Linux
+        path: |
+          ./build/linux/*
+        retention-days: 14 # 好东西不能放太久
+        if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
+    
+    - name: Upload Freebsd 📋
+      uses: actions/upload-artifact@v3
+      with:
+        name: AGDDoS-Freebsd
+        path: |
+          ./build/freebsd/*
+        retention-days: 14 # 好东西不能放太久
+        if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
+    
+    - name: Upload MacOS 📋
+      uses: actions/upload-artifact@v3
+      with:
+        name: AGDDoS-MacOS
+        path: |
+          ./build/darwin/*
+        retention-days: 14 # 好东西不能放太久
+        if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
+    
+    - name: Upload Windows 📋
+      uses: actions/upload-artifact@v3
+      with:
+        name: AGDDoS-Windows
+        path: ./build/windows/*
+        retention-days: 14 # 好东西不能放太久
         if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
