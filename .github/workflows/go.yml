@@ -19,32 +19,32 @@ jobs:
       id: linux
       run: |
         mkdir -p ./build
-        env GOOS=linux GOARCH=amd64    go build ./src/ -o ./build/linux/AGDDoS-linux-amd64
-        env GOOS=linux GOARCH=arm64    go build ./src/ -o ./build/linux/AGDDoS-linux-arm64
-        env GOOS=linux GOARCH=arm      go build ./src/ -o ./build/linux/AGDDoS-linux-arm
-        env GOOS=linux GOARCH=mips     go build ./src/ -o ./build/linux/AGDDoS-linux-mips
-        env GOOS=linux GOARCH=mipsle   go build ./src/ -o ./build/linux/AGDDoS-linux-mipsle
-        env GOOS=linux GOARCH=mips64   go build ./src/ -o ./build/linux/AGDDoS-linux-mips64
-        env GOOS=linux GOARCH=mips64le go build ./src/ -o ./build/linux/AGDDoS-linux-mips64le
-        env GOOS=darwin GOARCH=amd64   go build ./src/ -o ./build/darwin/AGDDoS-darwin-amd64
-        env GOOS=darwin GOARCH=arm64   go build ./src/ -o ./build/darwin/AGDDoS-darwin-arm64
+        env GOOS=linux GOARCH=amd64    go build -o ./build/linux/AGDDoS-linux-amd64 ./src/
+        env GOOS=linux GOARCH=arm64    go build -o ./build/linux/AGDDoS-linux-arm64 ./src/
+        env GOOS=linux GOARCH=arm      go build -o ./build/linux/AGDDoS-linux-arm ./src/
+        env GOOS=linux GOARCH=mips     go build -o ./build/linux/AGDDoS-linux-mips ./src/
+        env GOOS=linux GOARCH=mipsle   go build -o ./build/linux/AGDDoS-linux-mipsle ./src/
+        env GOOS=linux GOARCH=mips64   go build -o ./build/linux/AGDDoS-linux-mips64 ./src/
+        env GOOS=linux GOARCH=mips64le go build -o ./build/linux/AGDDoS-linux-mips64le ./src/
+        env GOOS=darwin GOARCH=amd64   go build -o ./build/darwin/AGDDoS-darwin-amd64 ./src/
+        env GOOS=darwin GOARCH=arm64   go build -o ./build/darwin/AGDDoS-darwin-arm64 ./src/
     
     - name: Build for Windows 🎁
       id: win
       run: |
         version=`cat version` # Version / 版本
         timestamp=`date "+%Y-%m-%d %H:%M:%S"` # Timestamp / 时间戳
-        env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" ./src/ -o ./build/windows/AGDDoS-amd64.exe
-        env CGO_ENABLED=0 GOOS=windows GOARCH=386  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" ./src/ -o ./build/windows/AGDDoS-x86.exe
-        env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" ./src/ -o ./build/windows/AGDDoS-arm64.exe
+        env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-amd64.exe ./src/
+        env CGO_ENABLED=0 GOOS=windows GOARCH=386  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-x86.exe ./src/
+        env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-arm64.exe ./src/
     
     - name: Build for Freebsd 🎁
       id: freebsd
       run: |
         version=`cat version` # Version / 版本
         timestamp=`date "+%Y-%m-%d %H:%M:%S"` # Timestamp / 时间戳
-        env CGO_ENABLED=0 GOOS=freebsd GOARCH=amd64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\""./src/  -o ./build/freebsd/AGDDoS-freebsd-amd64
-        env CGO_ENABLED=0 GOOS=freebsd GOARCH=386  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" ./src/ -o ./build/freebsd/AGDDoS-freebsd-x86
+        env CGO_ENABLED=0 GOOS=freebsd GOARCH=amd64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/freebsd/AGDDoS-freebsd-amd64 ./src/
+        env CGO_ENABLED=0 GOOS=freebsd GOARCH=386  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/freebsd/AGDDoS-freebsd-x86 ./src/
     
     - name: Upload Linux 📋
       uses: actions/upload-artifact@v3
