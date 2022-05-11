@@ -1,9 +1,8 @@
 [![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/AGDDoS/AGDDoS)
-# AGDDoS [![Go](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml/badge.svg)](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml)
+# AGDDoS [![Go](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml/badge.svg)](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml) [![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
 
 > 一款国内可用的压力测试系统
-
-> 亦叫做：断网小工具
+> 亦可叫做：断网小工具
 
 ## 🎈下载地址：
 
