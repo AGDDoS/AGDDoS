@@ -119,7 +119,3 @@ func printWelcome() {
 	// If not to do this, fmt.Print will print after the log.Print.
 	time.Sleep(time.Second)
 }
-
-func printTotal(*string, int) {
-	// TODO: #11 add Total print.
-}
