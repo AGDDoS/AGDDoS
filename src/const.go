@@ -9,20 +9,17 @@ const (
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
-	HelpMsg = "" +
-		"---------- AGDDoS Help ----------\n" +
-		"[!]This argument was deprecated, please use following command:\n" +
-		"> AGDDoS -h\n\n" +
-		"[*]If you have some problem when you use the tool,\n" +
+
+	// TODO: #12 升级后显示1次What's New
+	UpgradeMsg = "" +
+		"---------- What's New? ----------\n" +
+		"[+]Please see 'CHANGELOG.md'\n" +
+		"[*]If you have some problem when you use this tool,\n" +
 		"please submit issue at : https://github.com/AGDDoS/AGDDoS"
 )
 
 var (
-	Total        = 0
-	SuccessTotal = 0
-	ErrorTotal   = 0
-	DisplayTotal bool
-	UserAgents   = []string{
+	UserAgents = []string{
 		"Baiduspider-image+(+http://www.baidu.com/search/spider.htm)",
 		"Baiduspider-render/2.0; (+http://www.baidu.com/search/spider.html)",
 		"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; en) Presto/2.8.131 Version/11.11",
