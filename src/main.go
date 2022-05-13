@@ -44,7 +44,6 @@ func main() {
 	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
 	printWelcome()
 	// Parse Flags / 解析命令行参数
-	flag.BoolVar(&DisplayTotal, "u", false, "显示统计（未上线）")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
