@@ -1,9 +1,27 @@
+<!--
 [![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/AGDDoS/AGDDoS)
-# AGDDoS [![Go](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml/badge.svg)](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml) [![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
+[![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
+-->
+<h1 align="center">AGDDoS</h1>
 
-> 一款国内可用的压力测试系统
->
-> 亦可叫做：断网小工具
+<p align="center">
+    <a href="https://github.com/AGDDoS/AGDDoS/releases" target="_blank"><img src="https://img.shields.io/github/v/release/AGDDoS/AGDDoS?color=orange&include_prereleases&logo=github&style=for-the-badge" alt="AGDDoS latest version" /></a>&nbsp;
+    <a href="https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml" target="_blank"><img src="https://img.shields.io/github/workflow/status/AGDDoS/AGDDoS/Go?style=for-the-badge&logo=github" alt="AGDDoS build result" /></a>&nbsp;
+    <a href="https://goreportcard.com/report/github.com/AGDDoS/AGDDoS" target="_blank"><img src="https://goreportcard.com/badge/github.com/AGDDoS/AGDDoS?style=for-the-badge&logo=go" alt="go report" /></a>&nbsp;
+    <a href="https://github.com/LGBT-CN" target="_blank"><img src="https://img.shields.io/badge/Support-LGBTQIA-FF0000?style=for-the-badge" alt="Support LGBTQIA" /></a>&nbsp;
+    <a href="https://github.com/AGDDoS/AGDDoS/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/LICENSE-WTFPL-orange?style=for-the-badge&logo=none" alt="AGDDoS license" /></a>
+</p>
+
+> High-performance website testing tool written in Golang.
+
+## Features
+:heavy_check_mark: Protocol Agnostic - Currently supporting *HTTP, HTTPS, HTTP/2*. Other protocols are on the way.
+
+:heavy_check_mark: High-performance - Using the world #1 high-performance language -- Golang.
+
+:heavy_check_mark: Different Test Methods - Test your system's limits across different methods.
+
+:heavy_check_mark: Scalable - We provide you some APIs to use `AGDDoS` in your project.
 
 ## 🎈 Installation
 
@@ -33,21 +51,14 @@ You can join our [QQ频道] for issues, feature requests, feedbacks or anything 
 `AGDDoS` is created for testing the performance of web applications. Users MUST be the owner of the target system.
 Using it for harmful purposes is extremely forbidden. Our team & company is not responsible for its’ usages and consequences.
 
-## License
+## 📄 License
 
 **WTFPL**
-
-## 📄支持者证书
-
-> 支持者证书类似于许可证密钥，但适用于使用和支持开源软件的优秀人士。
-
-使 AGDDoS 与 Windows 的版本保持同步并与所有 Web 服务器兼容是一项永无止境的工作。请考虑通过[购买支持者证书]来支持这项工作。如果您过去已经捐款，您可以联系我来获取您的支持者证书，然后下载您的证书即可，新的捐赠者将在几天内通过电子邮件收到证书。
 
 ---
 Proudly build with ❤️ & Golang
 
 [![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
-
 
 
 [☁备用下载-镜像网站]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
