@@ -2,9 +2,10 @@
 # AGDDoS [![Go](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml/badge.svg)](https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml) [![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
 
 > 一款国内可用的压力测试系统
+>
 > 亦可叫做：断网小工具
 
-## 🎈下载地址：
+## 🎈 Installation
 
 **[⚡️点我下载最新版本](https://github.com/AGDDoS/AGDDoS/releases/)** | [☁备用下载-镜像网站] | [☁备用下载-FastGit]
 
@@ -13,7 +14,7 @@
 ![](img/watch_release.png)
 
 
-## 🔨使用方法
+## 🔨 Usage
 
 1. 首先，你的系统需要满足以下条件：
 
@@ -23,11 +24,18 @@
 
 3. **以管理员身份运行本程序**，使用`.\AGDDoS -h`查看帮助。
 
+## Communication
+
+You can join our [QQ频道] for issues, feature requests, feedbacks or anything else. 
+
+## Disclaimer
+
+`AGDDoS` is created for testing the performance of web applications. Users MUST be the owner of the target system.
+Using it for harmful purposes is extremely forbidden. Our team & company is not responsible for its’ usages and consequences.
+
 ## License
 
-This software is under **WTFPL**.
-
-本项目仅供技术交流参考之用，请严格遵守当地法律法规，不要利用本项目中的技术进行违法犯罪操作，一旦触犯法律与`AGDDoS`无关。
+**WTFPL**
 
 ## 📄支持者证书
 
@@ -44,4 +52,5 @@ Proudly build with ❤️ & Golang
 
 [☁备用下载-镜像网站]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGit]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
+[QQ频道]: https://github.com/
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
