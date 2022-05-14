@@ -63,5 +63,5 @@ Proudly build with ❤️ & Golang
 
 [☁备用下载-镜像网站]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGit]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
-[QQ频道]: https://github.com/
+[QQGroup]: https://jq.qq.com/?_wv=1027&k=OR48TYbJ
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
