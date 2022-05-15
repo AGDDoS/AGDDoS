@@ -44,7 +44,7 @@
 
 ## Communication
 
-You can join our [QQ频道] for issues, feature requests, feedbacks or anything else. 
+You can join our [QQGroup] for issues, feature requests, feedbacks or anything else. 
 
 ## Disclaimer
 
