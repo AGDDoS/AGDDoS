@@ -9,13 +9,6 @@ const (
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
-
-	// TODO: #12 升级后显示1次What's New
-	UpgradeMsg = "" +
-		"---------- What's New? ----------\n" +
-		"[+]Please see 'CHANGELOG.md'\n" +
-		"[*]If you have some problem when you use this tool,\n" +
-		"please submit issue at : https://github.com/AGDDoS/AGDDoS"
 )
 
 var (
