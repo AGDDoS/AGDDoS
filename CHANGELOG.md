@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ## Changed
 - Change log format `[INFO]` to `[I]`
+- Language internationalization
 
 ## [1.0.2-alpha-3] - 2022-05-14
 ### Added
