@@ -68,3 +68,13 @@ func Log(grindex int, i int, responseStatus string) {
 func PrintError(grindex int, i int, responseStatus string) {
 	log.Printf("[Error][AGDDoS#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
 }
+
+func removeHttpAndHttps(url string) string {
+	if strings.HasPrefix(url, "http://") {
+		return url[7:]
+	}
+	if strings.HasPrefix(url, "https://") {
+		return url[8:]
+	}
+	return url
+}

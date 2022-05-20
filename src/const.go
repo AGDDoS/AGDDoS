@@ -9,6 +9,18 @@ const (
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
+	debugHelpMsg = "AGDDoS Debug Command Line Tool\n" +
+		"===============================\n" +
+		"SYNTAX\n" +
+		"    ./AGDDoS debug [--help|-h]\n" +
+		"    ./AGDDoS debug [URL<string>]\n" +
+		"REMARKS\n" +
+		"    URL is an optional parameter\n" +
+		"    We debug https://github.com by default\n" +
+		"    If you want to debug another URL, enter URL param\n" +
+		"EXAMPLE\n" +
+		"    ./AGDDoS debug\n" +
+		"    ./AGDDoS debug https://fastgit.org"
 )
 
 var (
@@ -50,4 +62,5 @@ var (
 		// Don't forget to add ourselves!
 		"https://github.com/AGDDoS/AGDDoS",
 	}
+	Debug = false
 )
