@@ -44,6 +44,7 @@ func main() {
 	printWelcome()
 	printVer()
 	// Parse Flags / 解析命令行参数
+	flag.BoolVar(&Debug, "debug", false, "[WIP]Open debug tools(true/false)")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
@@ -66,9 +67,9 @@ func main() {
 
 func printWelcome() {
 	fmt.Println(WelcomeMsg)
-	time.Sleep(time.Second)
+	time.Sleep(time.Millisecond * 50)
 	log.Println("[*]Checking versions...")
-	// Sleep one second because the fmt is not thread-safety.
+	// Sleep because the fmt is not thread-safety.
 	// If not to do this, fmt.Print will print after the log.Print.
 }
 
@@ -77,5 +78,5 @@ func printVer() {
 	log.Println("[*]Currently built date is: " + timestamp)
 	log.Println("[*]Currently compiler is: " + runtime.Compiler)
 	log.Println("[*]Currently OS is: " + runtime.GOOS + "/" + runtime.GOARCH)
-	time.Sleep(time.Second)
+	time.Sleep(time.Millisecond * 50)
 }
