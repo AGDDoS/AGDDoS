@@ -3,7 +3,26 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.0.2-alpha-1] - 2022-04-19
+## [1.0.2-alpha-4] - 2022-05-20
+## Added
+- Debug tools
+
+## Changed
+- Change log format `[INFO]` to `[I]`
+
+## [1.0.2-alpha-3] - 2022-05-14
+### Added
+- Update Readme by @xiaozhu2007 in https://github.com/AGDDoS/AGDDoS/pull/13
+
+### Changed
+- Update README.md by @xiaozhu2007 in https://github.com/AGDDoS/AGDDoS/pull/14
+- #10
+
+## [1.0.2-alpha-2] - 2022-05-??
+### This hasn't released.
+
+
+## [1.0.2-alpha-1] - 2022-05-07
 ### Added
 - "version" file to describe the built version
 
@@ -35,7 +54,7 @@ All notable changes to this project will be documented in this file.
 - "img/README.md" by @AGDDoS-bot
 
 ### Removed
-- "patch/ban.json" because it was too old.
+- "patch/ban.json" because it was out-date.
 
 ## [1.0.0] - 2022-04-19
 ### Added
@@ -55,7 +74,10 @@ All notable changes to this project will be documented in this file.
 - README.md by @AGDDoS-bot and @xiaozhu2007
 
 
-[Unreleased]: https://github.com/AGDDoS/AGDDoS/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-4...HEAD
+[1.0.2-alpha-4]: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-3...1.0.2-alpha-4
+[1.0.2-alpha-3]: https://github.com/AGDDoS/AGDDoS/compare/8c553e1461d09aa178906a925995762a801719e6...1.0.2-alpha-3
+[1.0.2-alpha-2]: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-beta-1...8c553e1461d09aa178906a925995762a801719e6
 [1.0.2-alpha-1]: https://github.com/AGDDoS/AGDDoS/compare/v1.0.1-beta...1.0.2-alpha-1
 [1.0.1-beta]: https://github.com/AGDDoS/AGDDoS/compare/v1.0.0...v1.0.1-beta
 [1.0.0]: https://github.com/AGDDoS/AGDDoS/compare/v1.0.0-beta...v1.0.0
