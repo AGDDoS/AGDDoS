@@ -62,7 +62,7 @@ func genIpaddr() string {
 }
 
 func Log(grindex int, i int, responseStatus string) {
-	log.Printf("[INFO][AGDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
+	log.Printf("[I][AGDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
 }
 
 func PrintError(grindex int, i int, responseStatus string) {
