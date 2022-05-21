@@ -48,8 +48,11 @@ You can join our [QQGroup] or become a [contributor][repo] for [issues], feature
 
 ## 🍱 Disclaimer
 
-`AGDDoS` is created for testing the performance of web applications. Users MUST be the owner of the target system.
-Using it for harmful purposes is extremely forbidden. Our team & company is not responsible for its’ usages and consequences.
+`AGDDoS` is created for testing the performance of web applications.
+Users MUST be the owner of the target system.
+DO NOT use the script with the intention of hurting someone!
+Using it for harmful purposes is extremely forbidden.
+Our team & company is not responsible for its’ usages and consequences.
 
 ## 📄 License
 
