@@ -44,7 +44,7 @@ If you want to get the latest version notice, please give us a watching. Thanks!
 
 ## 👪 Communication
 
-You can join our [QQGroup] for issues, feature requests, feedbacks or anything else. 
+You can join our [QQGroup] or become a [contributor][repo] for [issues], feature requests, feedbacks or anything else. 
 
 ## 💰 Disclaimer
 
@@ -64,4 +64,6 @@ Proudly build with ❤️ & Golang
 [☁备用下载-Mirror]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGitMirror]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
 [QQGroup]: https://jq.qq.com/?_wv=1027&k=OR48TYbJ
+[repo]: https://github.com/AGDDoS/AGDDoS/
+[issues]: https://github.com/AGDDoS/AGDDoS/issues/new/choose?milestone=2022.6
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
