@@ -46,7 +46,7 @@ If you want to get the latest version notice, please give us a watching. Thanks!
 
 You can join our [QQGroup] or become a [contributor][repo] for [issues], feature requests, feedbacks or anything else. 
 
-## 💰 Disclaimer
+## 🍱 Disclaimer
 
 `AGDDoS` is created for testing the performance of web applications. Users MUST be the owner of the target system.
 Using it for harmful purposes is extremely forbidden. Our team & company is not responsible for its’ usages and consequences.
@@ -56,7 +56,7 @@ Using it for harmful purposes is extremely forbidden. Our team & company is not 
 **WTFPL**
 
 ---
-Proudly build with ❤️ & Golang
+Proudly build with :heart: & Golang
 
 [![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
 
