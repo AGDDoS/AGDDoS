@@ -41,7 +41,6 @@ func DoHttpRequest() (*string, error) {
 	request.Header.Set("Accept-language", "zh-CN,zh-TW;q=0.9")                    // 接受网页语言
 	request.Header.Set("X-Forward-For", "186.240.156.78,1.4.72.237,"+genIpaddr()) // 多 层 代 理
 	request.Header.Set("X-Real-IP", "186.240.156.78")                             // 多 层 代 理
-	request.Header.Set("DDoS-Powered-By", "AGDDoS")
 
 	response, err := DDosHttpClient.Do(request)
 	if err != nil {

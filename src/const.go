@@ -56,11 +56,6 @@ var (
 		"https://help.baidu.com/searchResult?keywords=",
 		"https://steamcommunity.com/market/search?q=",
 		"https://wx.zsxq.com/",
-		"https://www.android-ide.com/tutorial_androidapp.html",
-		"https://www.baidu.com/s?ie=utf-8&wd=AGDDoS%2FAGDDoS",
-		"https://www.baidu.com/s?ie=utf-8&wd=github.com%2FAGDDoS%2FAGDDoS",
-		// Don't forget to add ourselves!
-		"https://github.com/AGDDoS/AGDDoS",
 	}
 	Debug = false
 )
