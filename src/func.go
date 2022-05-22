@@ -22,6 +22,7 @@ func DoAttacking(grindex int) {
 				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // Purple. Status code is 400/402/403/404/500/501/502/...
 			}
 			Log(grindex, i, responseStatus)
+
 		}
 		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
 		runtime.GC() // Clean up memory to prevent memory overflow
@@ -78,11 +79,14 @@ func genIpaddr() string {
 }
 
 func Log(grindex int, i int, responseStatus string) {
+	Totalrequest += 1
 	log.Printf("[Worker/I#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
 }
 
 func PrintError(grindex int, i int, responseStatus string) {
+	Totalrequest += 1
 	log.Printf("[Worker/E#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
+
 }
 
 func removeHttpAndHttps(url string) string {

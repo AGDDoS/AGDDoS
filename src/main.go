@@ -40,6 +40,7 @@ var (
 func main() {
 	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
 	printWelcome()
+	SetupCloseHandler()
 	// Parse Flags / 解析命令行参数
 	printVersion := flag.Bool("v", false, "Print version")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")

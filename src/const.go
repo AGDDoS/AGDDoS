@@ -57,5 +57,6 @@ var (
 		"https://steamcommunity.com/market/search?q=",
 		"https://wx.zsxq.com/",
 	}
-	Debug = false
+	Debug        bool
+	Totalrequest int64
 )
