@@ -63,6 +63,8 @@ Proudly build with :heart: & Golang
 
 [![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
 
+<a href="https://dun.mianbaoduo.com/@xiaozhu2007" target="_blank"><img src="https://img.niucodata.com/dundunfan-bt.png" width="300"></a>
+
 
 [☁备用下载-Mirror]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGitMirror]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
