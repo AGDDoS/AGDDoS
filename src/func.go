@@ -53,6 +53,23 @@ func DoHttpRequest() (*string, error) {
 	return &response.Status, err
 }
 
+func printWelcome() {
+	fmt.Println(WelcomeMsg)
+	time.Sleep(time.Millisecond * 50)
+	// Sleep because the fmt is not thread-safety.
+	// If not to do this, fmt.Print will print after the log.Print.
+}
+
+func printVer() {
+	log.Println("[*]Checking versions...")
+	time.Sleep(time.Millisecond * 500)
+	log.Println("[*]Currently version is: " + version)
+	log.Println("[*]Currently built date is: " + timestamp)
+	log.Println("[*]Currently compiler is: " + runtime.Compiler)
+	log.Println("[*]Currently OS is: " + runtime.GOOS + "/" + runtime.GOARCH)
+	time.Sleep(time.Millisecond * 50)
+}
+
 // This is used to generate random IP addresses
 func genIpaddr() string {
 	rand.Seed(time.Now().Unix())
@@ -61,11 +78,11 @@ func genIpaddr() string {
 }
 
 func Log(grindex int, i int, responseStatus string) {
-	log.Printf("[I][AGDDoS#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
+	log.Printf("[Worker/I#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
 }
 
 func PrintError(grindex int, i int, responseStatus string) {
-	log.Printf("[Error][AGDDoS#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
+	log.Printf("[Worker/E#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
 }
 
 func removeHttpAndHttps(url string) string {

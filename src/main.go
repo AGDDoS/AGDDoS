@@ -3,12 +3,10 @@ package main
 import (
 	"context"
 	"flag"
-	"fmt"
 	"log"
 	"net"
 	"net/http"
 	"os"
-	"runtime"
 	"time"
 )
 
@@ -42,9 +40,8 @@ var (
 func main() {
 	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
 	printWelcome()
-	printVer()
 	// Parse Flags / 解析命令行参数
-	flag.BoolVar(&Debug, "debug", false, "[WIP]Open debug tools(true/false)")
+	printVersion := flag.Bool("v", false, "Print version")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
@@ -52,8 +49,12 @@ func main() {
 	flag.IntVar(&DurationMinute, "dm", 2000, "Attack Duration time(Minutes)")
 	flag.Parse()
 
+	if *printVersion {
+		printVer()
+		os.Exit(0)
+	}
 	if TargetUrl == defaultTargetUrl {
-		fmt.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
+		log.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
 		return
 	}
 	go func() {
@@ -63,20 +64,4 @@ func main() {
 	}()
 	time.Sleep(time.Duration(DurationMinute) * time.Minute)
 	os.Exit(0) // Exit with code 0
-}
-
-func printWelcome() {
-	fmt.Println(WelcomeMsg)
-	time.Sleep(time.Millisecond * 50)
-	log.Println("[*]Checking versions...")
-	// Sleep because the fmt is not thread-safety.
-	// If not to do this, fmt.Print will print after the log.Print.
-}
-
-func printVer() {
-	log.Println("[*]Currently version is: " + version)
-	log.Println("[*]Currently built date is: " + timestamp)
-	log.Println("[*]Currently compiler is: " + runtime.Compiler)
-	log.Println("[*]Currently OS is: " + runtime.GOOS + "/" + runtime.GOARCH)
-	time.Sleep(time.Millisecond * 50)
 }
