@@ -18,7 +18,7 @@ func (d *DebugFunc) Run(args []string) {
 	case 0:
 		isConnectOk = debug("https://github.com")
 	case 1:
-		isConnectOk = debug(os.Args[0])
+		os.Exit(0)
 	default:
 		fmt.Println("Invalid args for debug. Use -h to get more information.")
 	}
