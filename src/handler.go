@@ -12,8 +12,8 @@ func SetupCloseHandler() {
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-c
-		log.Println("\r --- AGDDoS Report for (" + Method + ")" + TargetUrl)
-		log.Println("\r - DurationMinute(dm):", DurationMinute)
+		log.Println("\r --- AGDDoS Report for (%d) %d", Method, TargetUrl)
+		// log.Println("\r - DurationMinute(dm):", DurationMinute)
 		log.Println("\r - Total Requests:", Totalrequest)
 		os.Exit(0)
 	}()

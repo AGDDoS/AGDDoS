@@ -15,26 +15,6 @@ var (
 	timestamp = "unknown"
 	version   = "unknown"
 )
-var (
-	Method              string
-	TargetUrl           string
-	IntervalMillisecond int
-	ConcurrencyCount    int
-	DurationMinute      int
-
-	//TODO：Socks5 Proxy
-	DDosHttpClient = &http.Client{
-		Transport: &http.Transport{
-			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
-				dialer := net.Dialer{
-					Timeout:   30 * time.Second, // 超时时间
-					KeepAlive: 60 * time.Second, // KeepAlive时间
-				}
-				return dialer.Dial(network, addr)
-			},
-		},
-	}
-)
 
 // Main Function
 func main() {
