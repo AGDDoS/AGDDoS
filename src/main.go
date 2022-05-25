@@ -1,11 +1,8 @@
 package main
 
 import (
-	"context"
 	"flag"
 	"log"
-	"net"
-	"net/http"
 	"os"
 	"time"
 )
