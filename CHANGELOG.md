@@ -1,7 +1,21 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+##  (2022-05-25)
 
-## [Unreleased]
+### Bug Fixes
+
+* **!!:** 修复Actions构建失败 ([f1b22b8](https://github.com/AGDDoS/AGDDoS/commit/f1b22b83436a071c1fae339334e23f7db5acff24))
+
+### Documentation
+
+* **贡献者守则:** 移除了贡献者守则, 更新了debug.go内的文档 ([d0995de](https://github.com/AGDDoS/AGDDoS/commit/d0995de92790196636931519cb31020c1fc5c332))
+
+### Performance Improvements
+
+* 更新main.go的var到const.go中 ([fcf62b0](https://github.com/AGDDoS/AGDDoS/commit/fcf62b02429fe258c8220d530ac42f096beff94d))
+
+### BREAKING CHANGES
+
+* **贡献者守则:** debug.go可能构建出错
+
 
 ## [1.0.2-alpha-4] - 2022-05-20
 ## Added
