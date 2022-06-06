@@ -1,8 +1,8 @@
-name: issue-daily
+name: 每日Issues
 
 on:
   schedule:
-    - cron: 0 0 * * *
+    - cron: 25 0,14 * * *
 
 jobs:
   issue-label-stale:
