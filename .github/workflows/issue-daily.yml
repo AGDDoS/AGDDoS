@@ -2,7 +2,7 @@ name: 每日Issues
 
 on:
   schedule:
-    - cron: 25 0,14 * * *
+    - cron: "25 */12 * * *"
 
 jobs:
   issue-label-stale:
@@ -13,9 +13,9 @@ jobs:
         with:
           actions: check-inactive
           token: ${{ secrets.GITHUB_TOKEN }}
-          inactive-day: 4
+          inactive-day: 3
           inactive-label: stale
-          exclude-labels: bug, documentation, enhancement,  stale
+          exclude-labels: bug, documentation, enhancement, stale
           body: |
             This issue is marked as `stale` because it has not had recent activity. Issues marked with `stale` will be closed if they have no activity within 3 days.
   
