@@ -1,6 +1,7 @@
 <!--
 [![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/AGDDoS/AGDDoS)
 [![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAGDDoS%2FAGDDoS.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAGDDoS%2FAGDDoS?ref=badge_shield)
 -->
 <h1 align="center">📌AGDDoS</h1>
 
@@ -13,6 +14,9 @@
 </p>
 
 > High-performance website testing tool written in Golang.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAGDDoS%2FAGDDoS.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAGDDoS%2FAGDDoS?ref=badge_large)
 
 ## Features
 :heavy_check_mark: Protocol Agnostic - Currently supporting *HTTP, HTTPS, HTTP/2*. Other protocols are on the way.
