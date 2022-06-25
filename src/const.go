@@ -16,18 +16,6 @@ const (
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
-	debugHelpMsg = "AGDDoS Debug Command Line Tool\n" +
-		"===============================\n" +
-		"SYNTAX\n" +
-		"    ./AGDDoS debug [--help|-h]\n" +
-		"    ./AGDDoS debug [URL<string>]\n" +
-		"REMARKS\n" +
-		"    URL is an optional parameter\n" +
-		"    We debug https://github.com by default\n" +
-		"    If you want to debug another URL, enter URL param\n" +
-		"EXAMPLE\n" +
-		"    ./AGDDoS debug\n" +
-		"    ./AGDDoS debug https://fastgit.org"
 )
 
 var (
@@ -64,17 +52,17 @@ var (
 		"https://steamcommunity.com/market/search?q=",
 		"https://wx.zsxq.com/",
 	}
-	Debug        bool
-	Totalrequest int64
-)
-var (
-	Method                string
-	TargetUrl              string
-	IntervalMillisecond     int
+
+	// HTTP Client
+	Method              string
+	TargetUrl           string
+	IntervalMillisecond int
 	ConcurrencyCount    int
-	DurationMinute        int
+	DurationMinute      int
+	Totalrequest        int64
 
 	//TODO：Socks5 Proxy
+
 	DDosHttpClient = &http.Client{
 		Transport: &http.Transport{
 			DialContext: func(ctx context.Context, network, addr string) (conn net.Conn, e error) {
