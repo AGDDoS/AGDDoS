@@ -10,15 +10,13 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v3
-        with:
-          configuration: ".github/configuration.json"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
+      - name: Generate Changelog
+        run: cp -f .github/changelog.txt ${{ github.workspace }}-CHANGELOG.txt
+    
+      - name: Release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          body: ${{steps.github_release.outputs.changelog}}
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          token: ${{ secrets.GH_PAT }}
+          prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-rc') || contains(github.ref, '-alpha') }}

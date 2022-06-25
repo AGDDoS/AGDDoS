@@ -1,0 +1,3 @@
+> NOTE: All achieves can be found here: 'Actions' Tab.
+
+**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-7...HEAD
