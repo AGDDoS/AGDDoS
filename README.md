@@ -1,7 +1,3 @@
-<!--
-[![AGDDoS](https://socialify.git.ci/AGDDoS/AGDDoS/image?description=1&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63779340&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light&cache=600)](https://github.com/AGDDoS/AGDDoS)
-[![LGBT-CN](https://img.shields.io/badge/Support-LGBTQIA-FF0000)](https://git.io/JfJiO)
--->
 <h1 align="center">📌AGDDoS</h1>
 
 <p align="center">
@@ -62,9 +58,6 @@ Our team & company is not responsible for its’ usages and consequences.
 Proudly build with :heart: & Golang
 
 [![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
-
-<p align="center">
-<a href="https://dun.mianbaoduo.com/@xiaozhu2007" target="_blank"><img src="https://img.niucodata.com/dundunfan-bt.png" width="300"></a></p>
 
 [☁备用下载-Mirror]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGitMirror]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/

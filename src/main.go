@@ -19,7 +19,7 @@ func main() {
 	printWelcome()
 	SetupCloseHandler()
 	// Parse Flags / 解析命令行参数
-	printVersion := flag.Bool("v", false, "Print version")
+	printVersion := flag.Bool("v", false, "Print version and exit")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
 	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
@@ -31,6 +31,7 @@ func main() {
 		printVer()
 		os.Exit(0)
 	}
+
 	if TargetUrl == defaultTargetUrl {
 		log.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
 		return
