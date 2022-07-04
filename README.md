@@ -50,6 +50,9 @@ DO NOT use the script with the intention of hurting someone!
 Using it for harmful purposes is extremely forbidden.
 Our team & company is not responsible for its’ usages and consequences.
 
+### Repobeats Analytics
+![here](https://repobeats.axiom.co/api/embed/eac5ea5083de6f94564b563c923c4b8222f882a8.svg "Repobeats analytics image")
+
 ## 📄 License
 
 **WTFPL**
