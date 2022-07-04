@@ -23,6 +23,7 @@ jobs:
         id: build
         run: |
           bash scripts/build.sh
+          bash scripts/zip.sh
       
       - name: Generate Changelog
         run: cp -f .github/changelog.txt ${{ github.workspace }}-CHANGELOG.txt

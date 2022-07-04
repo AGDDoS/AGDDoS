@@ -1,3 +1,8 @@
-> NOTE: All achieves can be found here: 'Actions' Tab.
+> NOTE: All build archives can be found in the 'Actions' tab.
 
-**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-7...HEAD
+Yes, we have released this new stable version. Like other projects, we 
+like Pull Request, but few people submit PR for our projects :(
+
+If you have a good idea, remember to submit it to us!
+
+**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-8...1.0.2
