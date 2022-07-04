@@ -34,6 +34,11 @@ var (
 		"Mozilla/5.0 (compatible; Googlebot-Image/1.0; +http://www.google.com/bot.html)",
 		"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
 		"Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+		"Mozilla/5.0 (iPod; U; CPU iPhone OS 3_3 like Mac OS X; apn-IN) AppleWebKit/534.32.3 (KHTML, like Gecko) Version/4.0.5 Mobile/8B112 Safari/6534.32.3",
+		"Mozilla/5.0 (iPod; U; CPU iPhone OS 4_1 like Mac OS X; ky-KG) AppleWebKit/535.26.5 (KHTML, like Gecko) Version/4.0.5 Mobile/8B119 Safari/6535.26.5",
+		"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7) AppleWebKit/536.1 (KHTML, like Gecko) Chrome/36.0.861.0 Safari/536.1",
+		"Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_1 like Mac OS X) AppleWebKit/531.2 (KHTML, like Gecko) FxiOS/10.9t7093.0 Mobile/11B127 Safari/531.2",
+		"Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_1 like Mac OS X) AppleWebKit/536.0 (KHTML, like Gecko) CriOS/36.0.857.0 Mobile/99E350 Safari/536.0",
 		"AGDDoS/" + version + "(" + timestamp + ")",
 	}
 
@@ -60,8 +65,6 @@ var (
 	ConcurrencyCount    int
 	DurationMinute      int
 	Totalrequest        int64
-
-	//TODO：Socks5 Proxy
 
 	DDosHttpClient = &http.Client{
 		Transport: &http.Transport{
