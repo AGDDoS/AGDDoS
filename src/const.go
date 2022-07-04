@@ -39,23 +39,23 @@ var (
 		"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7) AppleWebKit/536.1 (KHTML, like Gecko) Chrome/36.0.861.0 Safari/536.1",
 		"Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_1 like Mac OS X) AppleWebKit/531.2 (KHTML, like Gecko) FxiOS/10.9t7093.0 Mobile/11B127 Safari/531.2",
 		"Mozilla/5.0 (iPhone; CPU iPhone OS 14_2_1 like Mac OS X) AppleWebKit/536.0 (KHTML, like Gecko) CriOS/36.0.857.0 Mobile/99E350 Safari/536.0",
-		"AGDDoS/" + version + "(" + timestamp + ")",
 	}
 
 	Refs = []string{
 		"https://www.google.com/search?q=",
 		"https://check-host.net/",
 		"https://www.facebook.com/",
+		"http://www.scicat.cn/e/search/index.php?word=",
 		"https://www.youtube.com/",
-		"https://www.ip138.com/",
+		"https://www.ip138.com/iplookup.asp?action=2&ip=",
 		"https://www.bing.com/search?q=",
 		"https://r.search.yahoo.com/",
-		"https://www.china.gov/index.html",
+		"http://www.heikesz.com/web/?q=",
 		"https://vk.com/profile.php?redirect=",
-		"https://blog.csdn.net/",
+		"https://vulsee.com/?s=",
 		"https://help.baidu.com/searchResult?keywords=",
 		"https://steamcommunity.com/market/search?q=",
-		"https://wx.zsxq.com/",
+		"https://www.xn--flw351e.cf/search?q=",
 	}
 
 	// HTTP Client
