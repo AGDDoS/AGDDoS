@@ -32,6 +32,13 @@ echo Built Windows-x86!
 env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-arm64.exe ./src/
 echo Built Windows-arm64!
 
+env CGO_ENABLED=0 GOOS=windows GOARCH=amd64  go build -ldflags="-H windowsgui -s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-amd64-hidden.exe ./src/
+echo Built Windows-amd64-hidden!
+env CGO_ENABLED=0 GOOS=windows GOARCH=386  go build -ldflags="-H windowsgui -s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-x86-hidden.exe ./src/
+echo Built Windows-x86-hidden!
+env CGO_ENABLED=0 GOOS=windows GOARCH=arm64  go build -ldflags="-H windowsgui -s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/windows/AGDDoS-arm64-hidden.exe ./src/
+echo Built Windows-arm64-hidden!
+
 # Build for Freebzd 🎁
 env GOOS=freebsd GOARCH=amd64  go build -ldflags "-s -w -X main.version=$version -X \"main.timestamp=$timestamp\"" -o ./build/freebsd/AGDDoS-freebsd-amd64 ./src/
 echo Built Freebzd-amd64!
