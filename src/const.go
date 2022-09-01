@@ -9,7 +9,7 @@ import (
 
 // 定义各种常量、变量等
 const (
-	WelcomeMsg = "" +
+	WelcomeMsg = "\n" +
 		"+----------------------------------------------------------------+ \n" +
 		"| Welcome to use AGDDOS                                          | \n" +
 		"| Code by AGDDoS Team                                            | \n" +
