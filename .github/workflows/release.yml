@@ -45,5 +45,7 @@ jobs:
             ./build/darwin/AGDDoS-darwin-arm64
             ./build/windows/AGDDoS-amd64.exe
             ./build/windows/AGDDoS-arm64.exe
-            ./build/windows/AGDDoS-x86.exe
+            ./build/windows/AGDDoS-x86-hidden.exe
+            ./build/windows/AGDDoS-amd64-hidden.exe
+            ./build/windows/AGDDoS-arm64-hidden.exe
 
