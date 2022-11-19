@@ -30,6 +30,23 @@ jobs:
           ./build/linux/*
         retention-days: 14
         if-no-files-found: warn
+
+    - name: Upload MacOS 📋
+      uses: actions/upload-artifact@v3
+      with:
+        name: AGDDoS-MacOS
+        path: |
+          ./build/darwin/*
+        retention-days: 14
+        if-no-files-found: warn
+    
+    - name: Upload Windows 📋
+      uses: actions/upload-artifact@v3
+      with:
+        name: AGDDoS-Windows
+        path: ./build/windows/*
+        retention-days: 31
+        if-no-files-found: warn
     
     - name: Upload Freebsd 📋
       uses: actions/upload-artifact@v3
@@ -40,19 +57,3 @@ jobs:
         retention-days: 7
         if-no-files-found: warn
     
-    - name: Upload MacOS 📋
-      uses: actions/upload-artifact@v3
-      with:
-        name: AGDDoS-MacOS
-        path: |
-          ./build/darwin/*
-        retention-days: 7
-        if-no-files-found: warn
-    
-    - name: Upload Windows 📋
-      uses: actions/upload-artifact@v3
-      with:
-        name: AGDDoS-Windows
-        path: ./build/windows/*
-        retention-days: 14
-        if-no-files-found: warn

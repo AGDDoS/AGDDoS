@@ -62,12 +62,13 @@ func printWelcome() {
 }
 
 func printVer() {
-	log.Println("[*]Checking versions...")
+	log.Println("[*]Checking versions for " + AppName + "...")
 	time.Sleep(time.Millisecond * 500)
-	log.Println("[*]Currently version is: " + version)
-	log.Println("[*]Currently built date is: " + timestamp)
-	log.Println("[*]Currently compiler is: " + runtime.Compiler)
-	log.Println("[*]Currently OS is: " + runtime.GOOS + "/" + runtime.GOARCH)
+	log.Println("[*]Version: " + Version)
+	log.Println("[*]Built date: " + BuiltAt)
+	log.Println("[*]Git author: " + GitAuthor)
+	log.Println("[*]Git commit: " + GitCommit)
+	log.Println("[*]Golang version: " + GoVersion)
 	time.Sleep(time.Millisecond * 50)
 }
 

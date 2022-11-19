@@ -36,16 +36,9 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-rc') || contains(github.ref, '-alpha') }}
           files: |
-            ${{ github.workspace }}-CHANGELOG.txt
-            ./build/linux/AGDDoS-linux-amd64
-            ./build/linux/AGDDoS-linux-arm
-            ./build/linux/AGDDoS-linux-arm64
-            ./build/linux/AGDDoS-linux-mips64
-            ./build/darwin/AGDDoS-darwin-amd64
-            ./build/darwin/AGDDoS-darwin-arm64
-            ./build/windows/AGDDoS-amd64.exe
-            ./build/windows/AGDDoS-arm64.exe
-            ./build/windows/AGDDoS-x86-hidden.exe
-            ./build/windows/AGDDoS-amd64-hidden.exe
-            ./build/windows/AGDDoS-arm64-hidden.exe
+            AGDDoS-linux.zip
+            AGDDoS-darwin.zip
+            AGDDoS-win64-amd64.zip
+            AGDDoS-win64-arm64.zip
+            AGDDoS-win32.zip
 

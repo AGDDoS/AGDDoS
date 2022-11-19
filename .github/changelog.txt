@@ -5,4 +5,4 @@ like Pull Request, but few people submit PR for our projects :(
 
 If you have a good idea, remember to submit it to us!
 
-**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.2-alpha-8...1.0.2
+**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.3...1.1.0

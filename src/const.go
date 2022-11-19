@@ -7,12 +7,11 @@ import (
 	"time"
 )
 
-// 定义各种常量、变量等
 const (
 	WelcomeMsg = "\n" +
 		"+----------------------------------------------------------------+ \n" +
 		"| Welcome to use AGDDOS                                          | \n" +
-		"| Code by AGDDoS Team                                            | \n" +
+		"| Code by AGTeam                                                 | \n" +
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
