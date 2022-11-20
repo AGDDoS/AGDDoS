@@ -62,9 +62,9 @@ Proudly build with :heart: & Golang
 
 [![](img/give_a_star.png)](https://github.com/AGDDoS/AGDDoS)
 
-[☁备用下载-Mirror]: https://index.pig2333.workers.dev/AGDDoS/AGDDoS/releases/
+[☁备用下载-Mirror]: https://hellotools.eu.org/AGDDoS/AGDDoS/releases/
 [☁备用下载-FastGitMirror]: https://hub.fastgit.xyz/AGDDoS/AGDDoS/releases/
 [QQGroup]: https://jq.qq.com/?_wv=1027&k=OR48TYbJ
 [repo]: https://github.com/AGDDoS/AGDDoS/
-[issues]: https://github.com/AGDDoS/AGDDoS/issues/new/choose?milestone=2022.6
+[issues]: https://github.com/AGDDoS/AGDDoS/issues/new/choose?milestone=2022.8-12
 [购买支持者证书]: https://afdian.net/@xiaozhu2021
