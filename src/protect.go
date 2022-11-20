@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"runtime"
 	"strings"
 	//"github.com/gonutz/ide/w32"
 )
@@ -32,8 +33,7 @@ func PathExists(path string) (bool, error) {
 
 func check_virtual() (bool, error) { // 识别虚拟机
 	model := ""
-	var cmd *exec.Cmd
-	cmd = exec.Command("cmd", "/C", "wmic path Win32_ComputerSystem get Model")
+	cmd := exec.Command("cmd", "/C", "wmic path Win32_ComputerSystem get Model")
 	stdout, err := cmd.Output()
 	if err != nil {
 		return false, err
@@ -76,7 +76,9 @@ func check_file() {
 }
 
 func protectMain() {
-	check_file()
-	check_virtual()
-	// ShowConsoleAsync(w32.SW_HIDE) // 隐藏控制台窗口
+	if runtime.GOOS == "windows" {
+		check_file()
+		check_virtual()
+		// ShowConsoleAsync(w32.SW_HIDE) // 隐藏控制台窗口
+	}
 }
