@@ -15,6 +15,7 @@ const (
 		"| If you have some problem when you use the tool,                | \n" +
 		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
+	letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 )
 
 var (
@@ -56,7 +57,6 @@ var (
 		"https://steamcommunity.com/market/search?q=",
 		"https://www.xn--flw351e.cf/search?q=",
 	}
-
 	// HTTP Client
 	Method              string
 	TargetUrl           string
