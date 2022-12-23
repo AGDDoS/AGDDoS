@@ -2,7 +2,6 @@
 
 <p align="center">
     <a href="https://github.com/AGDDoS/AGDDoS/releases" target="_blank"><img src="https://img.shields.io/github/v/release/AGDDoS/AGDDoS?color=orange&include_prereleases&logo=github&style=for-the-badge" alt="AGDDoS latest version" /></a>&nbsp;
-    <a href="https://github.com/AGDDoS/AGDDoS/actions/workflows/go.yml" target="_blank"><img src="https://img.shields.io/github/workflow/status/AGDDoS/AGDDoS/Go?style=for-the-badge&logo=github" alt="AGDDoS build result" /></a>&nbsp;
     <a href="https://goreportcard.com/report/github.com/AGDDoS/AGDDoS" target="_blank"><img src="https://goreportcard.com/badge/github.com/AGDDoS/AGDDoS?style=for-the-badge&logo=go" alt="go report" /></a>&nbsp;
     <a href="https://github.com/LGBT-CN" target="_blank"><img src="https://img.shields.io/badge/Support-LGBTQIA-FF0000?style=for-the-badge" alt="Support LGBTQIA" /></a>&nbsp;
     <a href="https://github.com/AGDDoS/AGDDoS/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/LICENSE-WTFPL-orange?style=for-the-badge&logo=none" alt="AGDDoS license" /></a>
