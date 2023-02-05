@@ -17,11 +17,11 @@ func DoAttacking(grindex int) {
 			PrintError(grindex, i, err.Error()) // Red. Client ERROR
 			runtime.GC()                        // Clean up memory to prevent memory overflow
 		} else {
-			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                // Green. Status code is 200
-			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") { // Status code is not 200/301
+			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                                                     // Green. Status code is 200
+			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") && !strings.Contains(*result, "302") { // Status code is not 200/301
 				responseStatus = fmt.Sprintf("\033[1;35;40m (%s)", *result) // Purple. Status code is 400/402/403/404/500/501/502/...
 			}
-			Log(grindex, i, responseStatus)
+			PrintSuccess(grindex, i, responseStatus)
 
 		}
 		time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
@@ -86,13 +86,13 @@ func genRandstr(n int) string {
 	}
 	return string(b)
 }
-func Log(grindex int, i int, responseStatus string) {
-	Totalrequest += 1
-	log.Printf("[Worker/I#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
+
+func PrintSuccess(grindex int, i int, responseStatus string) {
+	log.Printf("[W/I#%d/%d]%s \033[0m \n", grindex, i, responseStatus)
 }
 
 func PrintError(grindex int, i int, responseStatus string) {
 	Totalrequest += 1
-	log.Printf("[Worker/E#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
+	log.Printf("[W/E#%d/%d] \033[1;31;40m (%s) \033[0m \n", grindex, i, responseStatus)
 
 }

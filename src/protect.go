@@ -6,20 +6,8 @@ import (
 	"os/exec"
 	"runtime"
 	"strings"
-	//"github.com/gonutz/ide/w32"
 )
 
-/*
-func ShowConsoleAsync(commandShow uintptr) {
-	console := w32.GetConsoleWindow()
-	if console != 0 {
-		_, consoleProcID := w32.GetWindowThreadProcessId(console)
-		if w32.GetCurrentProcessId() == consoleProcID {
-			w32.ShowWindowAsync(console, commandShow)
-		}
-	}
-}
-*/
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
@@ -79,6 +67,5 @@ func protectMain() {
 	if runtime.GOOS == "windows" {
 		check_file()
 		check_virtual()
-		// ShowConsoleAsync(w32.SW_HIDE) // 隐藏控制台窗口
 	}
 }

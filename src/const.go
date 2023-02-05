@@ -7,15 +7,14 @@ import (
 	"time"
 )
 
-const (
+var (
 	WelcomeMsg = "\n" +
 		"+----------------------------------------------------------------+ \n" +
-		"| Welcome to use AGDDOS                                          | \n" +
+		"| Welcome to use AGDDoS                                          | \n" +
 		"| Code by AGTeam                                                 | \n" +
 		"| If you have some problem when you use the tool,                | \n" +
-		"| please submit issue at : https://github.com/AGDDoS/AGDDoS      | \n" +
 		"+----------------------------------------------------------------+"
-	letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 )
 
 var (
@@ -44,8 +43,6 @@ var (
 	Refs = []string{
 		"https://www.google.com/search?q=",
 		"https://check-host.net/",
-		"https://www.facebook.com/",
-		"http://www.scicat.cn/e/search/index.php?word=",
 		"https://www.youtube.com/",
 		"https://www.ip138.com/iplookup.asp?action=2&ip=",
 		"https://www.bing.com/search?q=",
