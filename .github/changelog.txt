@@ -4,5 +4,3 @@ Yes, we have released this new stable version. Like other projects, we
 like Pull Request, but few people submit PR for our projects :(
 
 If you have a good idea, remember to submit it to us!
-
-**Full Changelog**: https://github.com/AGDDoS/AGDDoS/compare/1.0.3...1.1.0
