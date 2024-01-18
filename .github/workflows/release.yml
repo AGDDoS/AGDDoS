@@ -33,7 +33,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.txt
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.BOT_TOKEN }}
           prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-rc') || contains(github.ref, '-alpha') }}
           files: |
             AGDDoS-linux.zip
